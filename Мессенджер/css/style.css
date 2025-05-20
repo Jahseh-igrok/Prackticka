@@ -1,8 +1,9 @@
+
 body{
     margin: 0 auto;
     width: 100vw;
 }
-
+/*авторизация*/
 .header{
     display: flex;
     padding-top: 40px;
@@ -15,7 +16,6 @@ body{
     font-weight: 400;
     background: linear-gradient(to bottom,#d670f5, #7387f3) ;
 }
-
 .after_header{
     padding-top: 100px;
     padding-bottom: 100px;
@@ -26,8 +26,6 @@ body{
     background: linear-gradient(to bottom,#7387f3, #d670f5) ;
     height: 100vh;
 }
-
-
 .logo{
     transform: translateX(-25vw);
     top: 2px;
@@ -39,11 +37,11 @@ body{
 .wind_auth{
     display: block;
     width: 500px;
-    height: 500px;
+    height: 450px;
     text-align: center;
     border: 4px solid #000000;
     border-radius: 20px;
-    font-family: montserrat, sans-serif;;
+    font-family: montserrat, sans-serif;
     background: linear-gradient(to top,#7387f3, #d670f5);
 }
 .head_auth{
@@ -56,16 +54,13 @@ body{
     height: 60px;
     margin-left: 18%;
     margin-top: 3%;
-
 }
 .mess{
     margin-top: 15px;
-
 }
 .isq{
     margin-top: 15px;
     color: linear-gradient(to bottom,#d670f5, #7387f3) ;;
-
 }
 .btn-head{
     color: rgb(255, 255, 255);
@@ -80,6 +75,7 @@ body{
     left: 25vw;
 }
 .btn-head:hover{
+    cursor: pointer;
     background-color: #fff;
     color: #000000;
     border: 2px solid #fff;
@@ -113,7 +109,7 @@ body{
 .auth-lable1{
     font-size: 24px;
 }
-.btn-wind{
+.btn-auth{
     color: rgb(255, 255, 255);
     height: 55px;
     width: 150px;
@@ -125,7 +121,8 @@ body{
     top: 50px;
     margin-right: 20px;
 }
-.btn-wind:hover{
+.btn-auth:hover{
+    cursor: pointer;
     background-color: #fff;
     color: #000000;
     border: 2px solid #fff;
@@ -140,4 +137,291 @@ body{
     -ms-transition: background-color .3s;
     -o-transition: background-color .3s;
 }
+.btn-reg{
+    color: rgb(255, 255, 255);
+    height: 55px;
+    width: 150px;
+    border: 2px solid #000000;
+    background-color: #000000;
+    border-radius: 10px;
+    font-size: 24px;
+    position: relative;
+    top: 50px;
+    margin-right: 20px;
+}
+/*конец авторизации*/
+.btn-reg:hover{
+    cursor: pointer;
+    background-color: #fff;
+    color: #000000;
+    border: 2px solid #fff;
+    transition: color .3s;
+    -webkit-transition: color .3s;
+    -moz-transition: color .3s;
+    -ms-transition: color .3s;
+    -o-transition: color .3s;
+    transition: background-color .3s;
+    -webkit-transition: background-color .3s;
+    -moz-transition: background-color .3s;
+    -ms-transition: background-color .3s;
+    -o-transition: background-color .3s;
+}
+.btn-head-reg{
+    color: rgb(255, 255, 255);
+    height: 55px;
+    width: 150px;
+    border: 2px solid #000000;
+    background-color: #000000;
+    border-radius: 10px;
+    font-size: 24px;
+    position: relative;
+    top: 15px;
+    left: 25vw;
+}
+.btn-head-reg:hover{
+    cursor: pointer;
+    background-color: #fff;
+    color: #000000;
+    border: 2px solid #fff;
+    transition: color .3s;
+    -webkit-transition: color .3s;
+    -moz-transition: color .3s;
+    -ms-transition: color .3s;
+    -o-transition: color .3s;
+    transition: background-color .3s;
+    -webkit-transition: background-color .3s;
+    -moz-transition: background-color .3s;
+    -ms-transition: background-color .3s;
+    -o-transition: background-color .3s;
+}
+.btn-registr{
+    color: rgb(255, 255, 255);
+    height: 55px;
+    width: 150px;
+    border: 2px solid #000000;
+    background-color: #000000;
+    border-radius: 10px;
+    font-size: 24px;
+    position: relative;
+    top: 50px;
+    margin-right: 20px;
+}
+.btn-registr:hover{
+    cursor: pointer;
+    background-color: #fff;
+    color: #000000;
+    border: 2px solid #fff;
+    transition: color .3s;
+    -webkit-transition: color .3s;
+    -moz-transition: color .3s;
+    -ms-transition: color .3s;
+    -o-transition: color .3s;
+    transition: background-color .3s;
+    -webkit-transition: background-color .3s;
+    -moz-transition: background-color .3s;
+    -ms-transition: background-color .3s;
+    -o-transition: background-color .3s;
+}
+.btn-back{
+    color: rgb(255, 255, 255);
+    height: 55px;
+    width: 150px;
+    border: 2px solid #000000;
+    background-color: #000000;
+    border-radius: 10px;
+    font-size: 24px;
+    position: relative;
+    top: 50px;
+    margin-right: 20px;
+}
+.btn-back:hover{
+    cursor: pointer;
+    background-color: #fff;
+    color: #000000;
+    border: 2px solid #fff;
+    transition: color .3s;
+    -webkit-transition: color .3s;
+    -moz-transition: color .3s;
+    -ms-transition: color .3s;
+    -o-transition: color .3s;
+    transition: background-color .3s;
+    -webkit-transition: background-color .3s;
+    -moz-transition: background-color .3s;
+    -ms-transition: background-color .3s;
+    -o-transition: background-color .3s;
+}
+.reg-body{
+    padding-top: 100px;
+    padding-bottom: 100px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    background-color: #7387f3;
+    background: linear-gradient(to bottom,#7387f3, #d670f5) ;
+    height: 100vh;
+}
+.reg-head{
+    color: #ffffff;
+    font-size: 48px;
+    border: 2px solid linear-gradient(to right,#d670f5, #7387f3);
+    background: linear-gradient(to right,#d670f5);
+    border-radius: 40px;
+    width: 320px;
+    height: 60px;
+    margin-left: 18%;
+    margin-top: 3%;
 
+}
+.wind-reg{
+    display: block;
+    width: 500px;
+    height: 750px;
+    text-align: center;
+    border: 4px solid #000000;
+    border-radius: 20px;
+    font-family: montserrat, sans-serif;;
+    background: linear-gradient(to top,#7387f3, #d670f5);
+}
+.WORK{
+    width: 100vw;
+    display: flex;
+    background: linear-gradient(to left top,#b17ec0, #7387f3 );
+}
+.menu{
+    display: block;
+    width: 20vw;
+    height: 100vh;
+    background: linear-gradient(to right top, #929feb, #b66dcc);
+    border-right: 4px solid #000000;
+}
+.user-inf{
+    display: flex;
+    height: 12%;
+    border-bottom: 4px solid #000000;
+}
+.user-photo{
+    position: relative;
+    margin-left: 10px;
+    top: 20%;
+    width: 15%;
+    height: 50%;
+    border: 4px solid #000000;
+    border-radius: 100px;
+}
+.user-name{
+    font-family: montserrat, sans-serif;
+    width: 50%;
+    height: 50%;
+    position: relative;
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    margin-left: 30px;
+    top: 33%;
+    font-size: 2rem;
+}
+.fa-solid{
+    position: relative;
+    right: -4%;
+    top: 32%;
+    font-size: 300%;
+    cursor: pointer;
+}
+.wind-work{
+    width: 80vw;
+}
+.chats-area{
+    height: 88%;
+}
+.area-input{
+    position: relative;
+    top: 85%;
+    display: flex;
+    width: 100vw;
+}
+.input-text{
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(to right,#b66dcc, #b6bff3);
+    position: fixed;
+    height: 5vh;
+    width: 60vw;
+    font-size: 32px;
+    color: #fff;
+    left: 25vw;
+}
+.btn-post{
+    position: fixed;
+    border: none;
+    margin-left: 60px;
+    background-color: #000000;
+    color: #fff;
+    border-radius: 30px;
+    width: 10vw;
+    height: 5vh;
+    font-size: 32px;
+    left: 83vw;
+}
+.btn-post:hover{
+    cursor: pointer;
+    background-color: #fff;
+    color: #000000;
+    transition: color .3s;
+    -webkit-transition: color .3s;
+    -moz-transition: color .3s;
+    -ms-transition: color .3s;
+    -o-transition: color .3s;
+    transition: background-color .3s;
+    -webkit-transition: background-color .3s;
+    -moz-transition: background-color .3s;
+    -ms-transition: background-color .3s;
+    -o-transition: background-color .3s;
+}
+.defense{
+    background: linear-gradient(to right #b6bff3, #b66dcc);
+    border-radius: 50px;
+    display: flex;
+    text-align: center;
+    width: 300px;
+    height: 60px;
+    position: relative;
+}
+.create-chat{ 
+    position: relative;
+    border: none;
+    top: 1.6vw;
+    background-color: #000000;
+    color: #fff;
+    border-radius: 40px;
+    width: 7vw;
+    height: 4vh;
+    font-size: 1.5rem;
+    left: 1vw;
+}
+.create-chat:hover{
+    cursor: pointer;
+    background-color: #fff;
+    color: #000000;
+    transition: color .3s;
+    -webkit-transition: color .3s;
+    -moz-transition: color .3s;
+    -ms-transition: color .3s;
+    -o-transition: color .3s;
+    transition: background-color .3s;
+    -webkit-transition: background-color .3s;
+    -moz-transition: background-color .3s;
+    -ms-transition: background-color .3s;
+    -o-transition: background-color .3s;
+}
+.auth-input12{
+    font-size: 24px;
+    position: relative;
+    width: 51%;
+    border: none;
+    left: 43%; 
+}
+.settings-user{
+    background: linear-gradient(to top,#7387f3, #d670f5);
+    position: relative;    
+    height: 300px;
+}
