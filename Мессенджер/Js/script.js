@@ -118,7 +118,9 @@ function registration() {
                     _load('/Modules/WORK.html', function (responseText) {
                         CONTENT.innerHTML = responseText;
                         document.querySelector('.user-name').textContent = regData.Data.fam + " " + regData.Data.name;
+
                         getChats();
+                        createChat()
                     })
                 }
                 else {
@@ -152,7 +154,8 @@ function auth() {
                     _load('/Modules/WORK.html', function (responseText) {
                         CONTENT.innerHTML = responseText;
                         _elem('.user-name').textContent = AuthData.Data.fam + " " + AuthData.Data.name;
-                        _elem('.user-photo');
+                        let userImg = document.createElement('img')
+                        userImg.src = HOST + AuthData.photo_link
                         getChats();
                         createChat()
                     })
@@ -172,6 +175,16 @@ function getChats() {
             localStorage.getItem('_token', token);
             Chatdata = JSON.parse(HTTP_REQUEST.responseText);
             console.log(Chatdata);
+            Chatdata.forEach(element => {
+                let block_chats = document.getElementById(`chat_${element.chat_id}`)
+                if(!block_chats){
+                    _elem('.block_chats').append(
+                    createChatBlock(element)
+                )
+            }else{
+            
+            }
+    });
 
         }
     }
@@ -189,9 +202,10 @@ function createChat(){
                     localStorage.getItem('_token', token);
                     CreateData = JSON.parse(HTTP_REQUEST.responseText);
                     console.log(CreateData);
-                    createChatBlock()
-                    }
-            }
+                    onLoadChats()
+                }
+    }       
+
         
         // _post({url:`${HOST}/chats/`, Data: crdata}, function(responseText){
         //     responseText = JSON.parse(responseText);
@@ -203,7 +217,7 @@ function createChat(){
 function createChatBlock(chatdata) {
         
     let chatBlock = document.createElement('div');
-    chatBlock.classList.add('block_chats');
+    chatBlock.classList.add('block_chat');
     chatBlock.id = `chat_${chatdata.chat_id}`;
     let chatImg = document.createElement('img');
     chatImg.src = HOST + chatdata.companion_photo_link;
@@ -211,8 +225,33 @@ function createChatBlock(chatdata) {
     let chatName = document.createElement('p');
     chatName.textContent = chatdata.chat_name;
     chatBlock.append(chatName);
+    chatBlock.onclick = function () {
+        getMessage(chatdata.chat_id)
+    }
     console.log('createChatBlock()');
-    
+    return chatBlock
+}
+
+//  url?key=value&key2=value2
+
+function getMessage(chat_id){
+    let mdata = new FormData();
+    let HTTP_REQUEST = new XMLHttpRequest();
+    HTTP_REQUEST.open('GET', `${HOST}/messages/?chat_id=${chat_id}` );
+    HTTP_REQUEST.setRequestHeader("Authorization", "Bearer " + localStorage.getItem('_token'));
+    HTTP_REQUEST.send(mdata);
+    HTTP_REQUEST.onreadystatechange = function(){
+        if(HTTP_REQUEST.readyState == 4){
+            localStorage.getItem('_token', token);
+            messdata = JSON.parse(HTTP_REQUEST.responseText);
+            console.log(messdata);
+        }
+    }
+}
+function userInfo(){
+    _elem('.fa-solid').onclick = function(){
+
+    }
 }
 
 //#endregion
