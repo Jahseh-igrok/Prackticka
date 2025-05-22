@@ -154,10 +154,9 @@ function auth() {
                     _load('/Modules/WORK.html', function (responseText) {
                         CONTENT.innerHTML = responseText;
                         _elem('.user-name').textContent = AuthData.Data.fam + " " + AuthData.Data.name;
-                        let userImg = document.createElement('img')
-                        userImg.src = HOST + AuthData.photo_link
                         getChats();
                         createChat()
+                        userInfo()
                     })
                 }
             }
@@ -203,6 +202,7 @@ function createChat(){
                     CreateData = JSON.parse(HTTP_REQUEST.responseText);
                     console.log(CreateData);
                     onLoadChats()
+
                 }
     }       
 
@@ -249,8 +249,50 @@ function getMessage(chat_id){
     }
 }
 function userInfo(){
-    _elem('.fa-solid').onclick = function(){
-
+    _elem('.fa-bars').onclick = function(){
+        _elem('.user-block').classList.toggle('hidden')
+        loadInfo()
+        closeInfo()
+    }
+}
+function closeInfo(){
+    _elem('.fa-xmark').onclick = function(){
+        _elem('.user-block').classList.add('hidden')
+        userInfo()
+    }
+}
+function loadInfo(){
+    let udata = new FormData();
+    let HTTP_REQUEST = new XMLHttpRequest();
+    HTTP_REQUEST.open('GET', `${HOST}/user/`);
+    HTTP_REQUEST.setRequestHeader("Authorization", "Bearer " + localStorage.getItem('_token'));
+    HTTP_REQUEST.send(udata)
+    HTTP_REQUEST.onreadystatechange = function(){
+        if(HTTP_REQUEST.readyState == 4){
+            localStorage.getItem('_token', token);
+            userData = JSON.parse(HTTP_REQUEST.responseText);
+            console.log(userData);
+             _elem('.user-block .user-img').src = `${HOST}${userData.photo_link}`
+             _elem('.user-block .user-email').textContent = userData.email
+             _elem('.user-block .user-fam').textContent = userData.fam
+             _elem('.user-block .user-name-work').textContent = userData.name
+             exit()
+        }
+    }
+}
+function exit(){
+    _elem('.footer-exit-text').onclick = function(){
+        let exdata = new FormData();
+        let HTTP_REQUEST = new XMLHttpRequest();
+        HTTP_REQUEST.open('DELETE', `${HOST}/auth/`)
+        HTTP_REQUEST.setRequestHeader("Authorization", "Bearer " + localStorage.getItem('_token'));
+        HTTP_REQUEST.send(exdata);
+        HTTP_REQUEST.onreadystatechange = function(){
+            if(HTTP_REQUEST.readyState == 4){
+                localStorage.setItem('_token', '')
+                first()
+            }
+        }
     }
 }
 

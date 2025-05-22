@@ -112,7 +112,7 @@ body{
 .btn-auth{
     color: rgb(255, 255, 255);
     height: 55px;
-    width: 150px;
+    width: 160px;
     border: 2px solid #000000;
     background-color: #000000;
     border-radius: 10px;
@@ -140,7 +140,7 @@ body{
 .btn-reg{
     color: rgb(255, 255, 255);
     height: 55px;
-    width: 150px;
+    width: 160px;
     border: 2px solid #000000;
     background-color: #000000;
     border-radius: 10px;
@@ -342,7 +342,7 @@ body{
     width: 100vw;
 }
 .input-text{
-    border: none;
+    border: 3px solid #000000;
     border-radius: 30px;
     background: linear-gradient(to right,#b66dcc, #b6bff3);
     position: fixed;
@@ -457,12 +457,102 @@ img{
     border-radius: 50px;
 }
 p{
-
     margin-left: 20px;
 }
-.menu-before{
-    display: none;
+.hidden{
+    display: none !important;
 }
-.menu-after{
-    
+.fa-xmark{
+    font-size: 40px;
+}
+.user-block{
+    border-radius: 20px;
+    margin-top: 40px;
+    z-index: 1;
+    top: 10%;
+    left: 1%;
+    position: absolute;
+    background:linear-gradient(to bottom, #db75f0, rgb(133, 233, 200));
+    width: 400px;
+    height: 500px;
+    display: block;
+}
+.user-block-head{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    margin-left: 35%;
+}
+.user-img{
+    margin: 0 auto;
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    margin: 0 auto;
+}
+.user-block-body{
+    display: block;
+    justify-content: center;
+    text-align: center;
+}
+.user-email{
+    font-family: cursive, sans-serif;
+    margin: 0 auto;
+    font-size: 20px;
+}
+.user-fam{
+    font-family: Raleway, sans-serif;
+    font-weight: 400;
+    font-size: 48px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+.user-name-work{
+    margin: 0 auto;
+    height: 20px;
+    font-family: Raleway, sans-serif;
+    font-size: 48px;
+    font-weight: 400;
+}
+.footer{
+    display: flex;
+}
+.footer-change{
+    border-bottom-left-radius: 20px;
+    margin-top: 17%;
+    height: 60px;
+    width: 50%;
+    font-size: 32px;
+    text-align: center;
+}
+.footer-change:hover{
+    background-color: #ce96df;
+    cursor: pointer;
+}
+.footer-change-text{
+    font-family: Raleway, sans-serif;
+    font-weight: 400;
+    margin: 0 auto;
+    margin-top: 3px;
+    font-size: 26px;
+}
+.footer-exit{
+    border-bottom-right-radius: 20px;
+    margin-top: 17%;
+    height: 60px;
+    width: 50%;    
+    text-align: center;
+}
+.footer-exit:hover{
+    background-color: #ce96df;
+    cursor: pointer;
+}
+.footer-exit-text{
+    font-family: Raleway, sans-serif;
+    font-weight: 400;
+    color: red;
+    margin: 0 auto;
+    margin-top: 13px;
+    font-size: 28px;
 }
