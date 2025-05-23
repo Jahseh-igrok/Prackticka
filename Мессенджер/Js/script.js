@@ -113,14 +113,16 @@ function registration() {
 
                 if (regData.message) {
                     token = regData.Data.token;
+                    UserID = regData.Data.id
                     localStorage.setItem('_token', token);
+                    localStorage.setItem('_UserID', UserID)
                     console.log(token);
                     _load('/Modules/WORK.html', function (responseText) {
                         CONTENT.innerHTML = responseText;
                         document.querySelector('.user-name').textContent = regData.Data.fam + " " + regData.Data.name;
-
                         getChats();
                         createChat()
+                        userInfo()
                     })
                 }
                 else {
@@ -149,7 +151,9 @@ function auth() {
 
                 if (AuthData.message) {
                     token = AuthData.Data.token;
+                    UserID = AuthData.Data.id
                     localStorage.setItem('_token', token)
+                    localStorage.setItem('_UserID', UserID)
                     console.log(token);
                     _load('/Modules/WORK.html', function (responseText) {
                         CONTENT.innerHTML = responseText;
@@ -172,6 +176,7 @@ function getChats() {
     HTTP_REQUEST.onreadystatechange = function(){
         if(HTTP_REQUEST.readyState == 4){
             localStorage.getItem('_token', token);
+            localStorage.getItem('_UserID', UserID)
             Chatdata = JSON.parse(HTTP_REQUEST.responseText);
             console.log(Chatdata);
             Chatdata.forEach(element => {
@@ -199,10 +204,10 @@ function createChat(){
             HTTP_REQUEST.onreadystatechange = function(){
                 if(HTTP_REQUEST.readyState == 4){
                     localStorage.getItem('_token', token);
+                    localStorage.getItem('_UserID', UserID)
                     CreateData = JSON.parse(HTTP_REQUEST.responseText);
                     console.log(CreateData);
                     onLoadChats()
-
                 }
     }       
 
@@ -227,6 +232,7 @@ function createChatBlock(chatdata) {
     chatBlock.append(chatName);
     chatBlock.onclick = function () {
         getMessage(chatdata.chat_id)
+        
     }
     console.log('createChatBlock()');
     return chatBlock
@@ -243,8 +249,10 @@ function getMessage(chat_id){
     HTTP_REQUEST.onreadystatechange = function(){
         if(HTTP_REQUEST.readyState == 4){
             localStorage.getItem('_token', token);
+            localStorage.getItem('_UserID', UserID)
             messdata = JSON.parse(HTTP_REQUEST.responseText);
-            console.log(messdata);
+            // console.log(messdata);
+            makeMess(messdata)
         }
     }
 }
@@ -270,6 +278,7 @@ function loadInfo(){
     HTTP_REQUEST.onreadystatechange = function(){
         if(HTTP_REQUEST.readyState == 4){
             localStorage.getItem('_token', token);
+            localStorage.getItem('UserID', UserID)
             userData = JSON.parse(HTTP_REQUEST.responseText);
             console.log(userData);
              _elem('.user-block .user-img').src = `${HOST}${userData.photo_link}`
@@ -290,10 +299,37 @@ function exit(){
         HTTP_REQUEST.onreadystatechange = function(){
             if(HTTP_REQUEST.readyState == 4){
                 localStorage.setItem('_token', '')
+                localStorage.setItem('_UserID', '')
                 first()
             }
         }
     }
 }
 
+function makeMess(mess){
+    console.log(mess);
+    mess.forEach(element=>{
+    let msgBlock = document.createElement('div');
+    msgBlock.classList.add('msg');
+    element.sender.id == localStorage.getItem('_UserID', UserID) ? msgBlock.classList.add('msg-my'): msgBlock.classList.add('msg-me')
+    msgBlock.id = `msg_${element.sender.id}`
+
+    let msgSender = document.createElement('h4')
+    msgSender.textContent = `${element.sender.name} ${element.sender.otch} ${element.sender.fam}`
+    msgBlock.append(msgSender)
+
+    let msgText = document.createElement('p')
+    msgText.textContent = `${element.text}`
+    msgText.append(msgText)
+
+    let msgDateTime = document.createElement('p')
+    msgDateTime.classList.add('datetime')
+    msgDateTime.textContent = `${mess.datetime_create}`
+    msgBlock.append(msgDateTime)
+
+    return msgBlock
+    })
+
+
+}
 //#endregion

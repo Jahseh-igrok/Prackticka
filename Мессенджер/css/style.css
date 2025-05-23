@@ -474,7 +474,7 @@ p{
     position: absolute;
     background:linear-gradient(to bottom, #db75f0, rgb(133, 233, 200));
     width: 400px;
-    height: 500px;
+    height: 513px;
     display: block;
 }
 .user-block-head{
@@ -521,7 +521,7 @@ p{
 .footer-change{
     border-bottom-left-radius: 20px;
     margin-top: 17%;
-    height: 60px;
+    height: 66px;
     width: 50%;
     font-size: 32px;
     text-align: center;
@@ -540,7 +540,7 @@ p{
 .footer-exit{
     border-bottom-right-radius: 20px;
     margin-top: 17%;
-    height: 60px;
+    height: 66px;
     width: 50%;    
     text-align: center;
 }
