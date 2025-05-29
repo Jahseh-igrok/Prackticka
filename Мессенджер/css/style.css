@@ -330,16 +330,19 @@ body{
 
 .wind-work{
     width: 80vw;
+    display: block;
 }
 .chats-area{
     display: block;
     height: 88%;
 }
 .area-input{
-    position: relative;
+    position: absolute;
     top: 85%;
     display: flex;
     width: 100vw;
+    height: 15vh;
+
 }
 .input-text{
     border: 3px solid #000000;
@@ -555,4 +558,30 @@ p{
     margin: 0 auto;
     margin-top: 13px;
     font-size: 28px;
+}
+.msg{
+    height: 8%;
+}
+.msg-my{
+    position: relative;
+    margin-left: 40px;
+    border-radius: 20px;
+    padding-left: 20px;
+    font-family: Raleway, sans-serif;
+    width: 15%;
+    height: 3%;
+    background: linear-gradient(to right,#db75f0, #8ee030);
+}
+.msg-me{
+    position: relative;
+    left: 80%;
+    border-radius: 20px;
+    padding-left: 20px;
+    font-family: Raleway, sans-serif;
+    width: 15%;
+    height: 3%;
+    background: linear-gradient(to right,#8ee030,#db75f0 );
+}
+&.active{
+    background-color: #000000;
 }

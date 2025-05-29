@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<title>Чат</title>
+</head>
+<body>
+
+<button id="chatButton">Открыть чат</button>
+<div id="messageContainer"></div>
+
+<script>
+  // Переменная-флаг для отслеживания, было ли сообщение показано
+  let messageShown = false;
+
+  const chatButton = document.getElementById('chatButton');
+  const messageContainer = document.getElementById('messageContainer');
+
+  chatButton.addEventListener('click', () => {
+    if (!messageShown) {
+      // Создаем и добавляем сообщение
+      const message = document.createElement('p');
+      message.textContent = 'Это ваше первое сообщение в чате!';
+      messageContainer.appendChild(message);
+
+      // Устанавливаем флаг, чтобы сообщение больше не показывать
+      messageShown = true;
+    }
+  });
+</script>
+
+</body>
+</html>
