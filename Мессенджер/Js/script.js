@@ -1,8 +1,8 @@
 //#region Глобальные переменные
 const HOST = 'http://api-messenger.web-srv.local'
 const CONTENT = _elem('.content')
-const INTERVAL_UPDATE_CHATS = 20000;
-const INTERVAL_UPDATE_MSG = 20000;
+const INTERVAL_UPDATE_CHATS = 5000;
+const INTERVAL_UPDATE_MSG = 5000;
 var CURRENT_CHAT;
 var GLOBAL_TIMERS = [];
 var TIMER_UPDATE_MSG;
@@ -68,6 +68,15 @@ function _load(url, callback) {
     }
 }
 
+// function localJSON(name, link){
+
+//     link = 
+
+//     localStorage.setItem(name, link)
+
+
+// }
+
 //#endregion
 
 //#region Объявление страницы
@@ -78,12 +87,31 @@ first();
 
 //#region Функции
 
+//#region Остановление всех интервалов
+function stopTimers() {
+    clearInterval(TIMER_UPDATE_MSG)
+    GLOBAL_TIMERS.forEach(element => {
+        clearInterval(element)
+        
+    })
+}
+//#endregion
+
 //#region Получение первой страницы 
 function first() {
     _get({ url: '/Modules/AUTH.html' }, function (responseText) {
         CONTENT.innerHTML = responseText;
         auth();
-        clearInterval(GLOBAL_TIMERS);
+        stopTimers()
+        clearTimeout()
+        localStorage.removeItem('_token');
+        localStorage.removeItem('_UserID');
+        localStorage.removeItem('_chatID');
+        localStorage.removeItem('_pass');
+        localStorage.removeItem('_fam');
+        localStorage.removeItem('_name');
+        localStorage.removeItem('_otch');
+        localStorage.removeItem('_photo');
         _elem(".btn-reg").addEventListener('click', function () {
             _load('/Modules/REG.html', function (responseText) {
                 CONTENT.innerHTML = responseText;
@@ -123,6 +151,8 @@ function registration() {
                     UserID = regData.Data.id;
                     localStorage.setItem('_token', token);
                     localStorage.setItem('_UserID', UserID);
+                    let userInf = JSON.stringify(regData.Data)
+                    localStorage.setItem('userInf', userInf)
                     //console.log(token);
                     _load('/Modules/WORK.html', function (responseText) {
                         CONTENT.innerHTML = responseText;
@@ -131,6 +161,7 @@ function registration() {
                         getChats();
                         createChat();
                         userInfo();
+                        btnPostMessHandler();
                     })
                 }
                 else {
@@ -157,17 +188,40 @@ function auth() {
         HTTP_REQUEST.onreadystatechange = function () {
             if (HTTP_REQUEST.readyState == 4) {
                 AuthData = JSON.parse(HTTP_REQUEST.responseText);
-                // console.log(AuthData);
-
+                console.log(AuthData);
                 if (AuthData.message) {
                     token = AuthData.Data.token;
                     UserID = AuthData.Data.id
+                    // pass = AuthData.Data.pass
+                    // fam = AuthData.Data.fam
+                    // nam = AuthData.Data.name
+                    // let userInf = JSON.stringify(AuthData.Data)
+                    // localStorage.setItem('_userInf', userInf)
+                    // const storedDataString = localStorage.getItem('_userInf');
+                    // if(storedDataString){
+                    //     const storedData = JSON.parse(storedDataString)
+                    //     console.log(storedData);
+                    // }
+
+                    pass = AuthData.Data.pass
+                    fame = AuthData.Data.fam
+                    nam = AuthData.Data.name
+                    otch = AuthData.Data.otch
+                    photo = AuthData.Data.photo_link
+                    
+                    localStorage.setItem('_pass', pass);
+                    localStorage.setItem('_fam', fame);
+                    localStorage.setItem('_name', nam);
+                    localStorage.setItem('_otch', otch);
+                    localStorage.setItem('_photo', photo);
+
                     localStorage.setItem('_token', token);
                     localStorage.setItem('_UserID', UserID);
+
                     //console.log(token);
                     _load('/Modules/WORK.html', function (responseText) {
                         CONTENT.innerHTML = responseText;
-                        _elem('.user-block .user-img').src = `${HOST}${AuthData.Data.photo_link}`;
+                        _elem('.user-inf img').src = `${HOST}${AuthData.Data.photo_link}`;
                         _elem('.user-name').textContent = AuthData.Data.fam + " " + AuthData.Data.name;
                         // img = _elem('.user-img')
                         // img.src = AuthData.Data.photo_link
@@ -176,6 +230,7 @@ function auth() {
                         getChats();
                         createChat();
                         userInfo();
+                        btnPostMessHandler();
 
                     })
                 }
@@ -195,9 +250,10 @@ function getChats() {
     HTTP_REQUEST.onreadystatechange = function () {
         if (HTTP_REQUEST.readyState == 4) {
             localStorage.getItem('_token');
-            localStorage.getItem('_UserID')
+            localStorage.getItem('_UserID');
             Chatdata = JSON.parse(HTTP_REQUEST.responseText);
-            GLOBAL_TIMERS.push(setInterval(getChats, INTERVAL_UPDATE_CHATS))
+            setTimeout(getChats, INTERVAL_UPDATE_CHATS);
+            // GLOBAL_TIMERS.push(setInterval(getChats, INTERVAL_UPDATE_CHATS))
             //console.log(Chatdata);
             Chatdata.forEach(element => {
                 let block_chats = document.getElementById(`chat_${element.chat_id}`)
@@ -205,15 +261,12 @@ function getChats() {
                     _elem('.block_chats').append(
                         createChatBlock(element)
                     )
-
                 } else {
-                    if (block_chats.getAttribute('last-msg') != element.chat_last_message) {
-                        block_chats.style = 'background-color:red;'
-                    }
+                    // if (block_chats.getAttribute('last-msg') != element.chat_last_message) {
+                    //     block_chats.style = 'background-color:red;'
+                    // }
                 }
-                postMess()
             });
-
         }
     }
 }
@@ -236,8 +289,8 @@ function createChat() {
                 localStorage.getItem('_UserID');
                 CreateData = JSON.parse(HTTP_REQUEST.responseText);
                 //console.log(CreateData);
-                getChats()
-                _elem('.block_chats').append(getChats())
+                getChats();
+                _elem('.block_chats').append(getChats());
             }
         }
         // _post({url:`${HOST}/chats/`, Data: crdata}, function(responseText){
@@ -254,7 +307,6 @@ function createChat() {
 
 function createChatBlock(chatdata) {
     //console.log(chatdata);
-
     let chatBlock = document.createElement('div');
     chatBlock.classList.add('block_chat');
     chatBlock.id = `chat_${chatdata.chat_id}`;
@@ -264,7 +316,7 @@ function createChatBlock(chatdata) {
     let chatName = document.createElement('p');
     chatName.textContent = chatdata.chat_name;
     chatBlock.append(chatName);
-    chatBlock.setAttribute('last-msg', chatdata.chat_last_message)
+    chatBlock.setAttribute('last-msg', chatdata.chat_last_message);
     // chatBlock.onclick = function () {
     //     CURRENT_CHAT = chatdata.chat_id;
     //     getMessage(chatdata.chat_id);
@@ -276,31 +328,31 @@ function createChatBlock(chatdata) {
 
     // }
     chatBlock.onclick = function () {
+        // btnPostMessHandler()
         CURRENT_CHAT = chatdata.chat_id;
-        localStorage.setItem('_chatID', CURRENT_CHAT)
+        localStorage.setItem('_chatID', CURRENT_CHAT);
 
         this.style = ''
         if (Array.isArray(_elem('.block_chat'))) {
             _elem('.block_chat').forEach(element => {
-                element.classList.remove('active')
+                element.classList.remove('active');
             });
         } else {
-            _elem('.block_chat').classList.remove('active')
+            _elem('.block_chat').classList.remove('active');
         }
 
-        this.classList.add('active')
+        this.classList.add('active');
 
-        clearInterval(TIMER_UPDATE_MSG)
+        clearInterval(TIMER_UPDATE_MSG);
 
         _elem('.message_block').innerHTML = '';
-        getMessage(chatdata.chat_id)
+        getMessage(chatdata.chat_id);
         TIMER_UPDATE_MSG = setInterval(() => {
-            getMessage(chatdata.chat_id)
+            getMessage(chatdata.chat_id);
         }, INTERVAL_UPDATE_MSG);
 
-        _elem('.message_block').classList.remove('hidden')
-        _elem('.area-input').classList.remove('hidden')
-
+        _elem('.message_block').classList.remove('hidden');
+        _elem('.area-input').classList.remove('hidden');
     }
 
     //console.log('createChatBlock()');
@@ -314,6 +366,7 @@ function createChatBlock(chatdata) {
 function userInfo() {
     _elem('.fa-bars').onclick = function () {
         _elem('.user-block').classList.toggle('hidden');
+        changeInfoUser();
         loadInfo();
         closeInfo();
     }
@@ -339,14 +392,15 @@ function loadInfo() {
     HTTP_REQUEST.onreadystatechange = function () {
         if (HTTP_REQUEST.readyState == 4) {
             localStorage.getItem('_token');
-            localStorage.getItem('UserID')
+            localStorage.getItem('UserID');
             userData = JSON.parse(HTTP_REQUEST.responseText);
-            //console.log(userData);
             _elem('.user-block .user-img').src = `${HOST}${userData.photo_link}`;
             _elem('.user-block .user-email').textContent = userData.email;
             _elem('.user-block .user-fam').textContent = userData.fam;
             _elem('.user-block .user-name-work').textContent = userData.name;
+            
             exit();
+            //console.log(userData);
         }
     }
 }
@@ -367,7 +421,6 @@ function exit() {
                 localStorage.removeItem('_UserID');
                 localStorage.removeItem('_chatID');
                 first();
-
             }
         }
     }
@@ -378,32 +431,29 @@ function exit() {
 //#region Загрузка сообщений в чат
 
 function getMessage(chat_id) {
-    let mdata = new FormData();
     let HTTP_REQUEST = new XMLHttpRequest();
     HTTP_REQUEST.open('GET', `${HOST}/messages/?chat_id=${chat_id}`);
     HTTP_REQUEST.setRequestHeader("Authorization", "Bearer " + localStorage.getItem('_token'));
-    HTTP_REQUEST.send(mdata);
+    HTTP_REQUEST.send();
     HTTP_REQUEST.onreadystatechange = function () {
         if (HTTP_REQUEST.readyState == 4) {
-            localStorage.getItem('_token');
-            localStorage.getItem('_UserID');
-            localStorage.getItem('_chatID');
+            localStorage.getItem('_token');  //*
+            localStorage.getItem('_UserID'); //*
+            localStorage.getItem('_chatID'); //*
             messdata = JSON.parse(HTTP_REQUEST.responseText);
-            console.log(messdata);
+            // console.log(messdata);
 
-            // CURRENT_CHAT = messdata.chat_id
-
-            messdata.forEach(element => {
-
-                console.log(element);
-
+            let originalArray = messdata;
+            for (let i = originalArray.length - 1; i >= 0; i--) {
+                // reverseArray.push(originalArray[i]);
+                let element = originalArray[i]
+                // console.log(element);
                 let message_block = document.getElementById(`msg_${element.id}`);
                 if (!message_block) {
-                    let msgBlock = makeMess(element)
-                    console.log(msgBlock);
-
-                    _elem('.message_block').append(msgBlock)
-                    // postMess();
+                    let msgBlock = makeMess(element);
+                    _elem('.message_block').append(msgBlock);
+                    // console.log(msgBlock);
+                    // btnPostMessHandler();
                     // _elem('.msg-me').classList.add('hidden');
                     // _elem(`msg_${element.sender.id}`.classList.toggle('hidden'));
                     // document.getElementById(`msg_${element.sender.id}`.classList.toggle('hidden'))
@@ -411,9 +461,25 @@ function getMessage(chat_id) {
                     // _elem('.msg-me').classList.toggle('hidden');
                     //console.log('messdata');   
                 }
-
             }
-            )
+
+            // reverseArray.forEach(element => {
+            //      // console.log(element);
+            //      let message_block = document.getElementById(`msg_${element.id}`);
+            //      if (!message_block) {
+            //        let msgBlock = makeMess(element);
+            //         _elem('.message_block').append(msgBlock);
+            //         // console.log(msgBlock);
+            //         // btnPostMessHandler();
+            //          // _elem('.msg-me').classList.add('hidden');
+            //         // _elem(`msg_${element.sender.id}`.classList.toggle('hidden'));
+            //         // document.getElementById(`msg_${element.sender.id}`.classList.toggle('hidden'))
+            //         // _elem('.msg-my').classList.toggle('hidden');
+            //         // _elem('.msg-me').classList.toggle('hidden');
+            //         //console.log('messdata');   
+            //     }
+            // }
+            // )
             // //console.log(messdata);
         }
     }
@@ -454,7 +520,7 @@ function makeMess(mess) {
 
 //#region Отправка сообщения в чат
 
-function postMess() {
+function btnPostMessHandler() {
 
     _elem('.btn-post').addEventListener('click', function () {
 
@@ -470,12 +536,33 @@ function postMess() {
                 postData = JSON.parse(HTTP_REQUEST.responseText);
                 localStorage.getItem('_token');
                 localStorage.getItem('_UserID');
-                //console.log(postData);
+                // console.log(postData);
+                getMessage(localStorage.getItem('_chatID'));
                 //console.log(CURRENT_CHAT);
             }
         }
     }
     )
+}
+
+function changeInfoUser() {
+    _elem('.footer-change').addEventListener('click', function () {
+        let changeus = new FormData();
+        changeus.append('pass', localStorage.getItem('_pass'));
+        changeus.append('fam', localStorage.getItem('_fam'));
+        changeus.append('name', localStorage.getItem('_name'));
+        changeus.append('otch', localStorage.getItem('_otch'));
+        changeus.append('photo_link', localStorage.getItem('_photo'));
+
+        localStorage.getItem('_userInf');
+        let HTTP_REQUEST = new XMLHttpRequest();
+        HTTP_REQUEST.open('GET', `${HOST}/user/`);
+        HTTP_REQUEST.setRequestHeader("Athorization", "Bearer " + localStorage.getItem('token'));
+        HTTP_REQUEST.send(changeus);
+        if (HTTP_REQUEST.readyState == 4) {
+            changeData = JSON.parse(HTTP_REQUEST.responseText);
+        }
+    })
 }
 
 //#endregion
