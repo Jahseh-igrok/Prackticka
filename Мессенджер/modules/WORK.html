@@ -44,12 +44,38 @@
                         <p class="user-fam"></p>
                         <p class="user-name-work"></p>
                     </div>
+
                     <div class="footer">
                         <div class="footer-change">
                             <p class="footer-change-text">Изменить данные</p>
                         </div>
                         <div class="footer-exit">
                             <p class="footer-exit-text">Выйти</p>
+                        </div>
+                        <div class="delete-user">
+                            <p class="delete-user-text">Удалить аккаунт</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="user-change hidden">
+                    <div class="user-change-head">
+                        Изменить данные
+                    </div>
+                    <div class="user-change-body">
+                        <img id="user-change-img" class="user-change-img" src="" alt="">
+                        <input class="change-input" name="change-fam" type="text" placeholder="Фамилия">
+                        <input class="change-input" name="change-name" type="text" placeholder="Имя">
+                        <input class="change-input" name="change-otch" type="text" placeholder="Отчество">
+                        <input class="change-input" name="change-pass" type="text" placeholder="Пароль">
+                    </div>
+
+                    <div class="footer-change-body">
+                        <div class="change-data">
+                            <p class="change-data-text">Изменить</p>
+                        </div>
+                        <div class="change-back">
+                            <p class="change-back-text">Назад</p>
                         </div>
                     </div>
                 </div>
@@ -71,11 +97,20 @@
                 <div class="block_chats">
 
                 </div>
+
+                <div class="change-name-chat-area hidden">
+                    <button class="change-name-btn" name="change-name-btn">Изменить имя чата</button>
+                    <input name="change-name-input" class="change-name-input" type="text" placeholder="Введите новое имя чата">
+
+                </div>
+
             </div>
         </div>
 
         <div class="wind-work">
-            <div class="message_block"></div>
+            <div class="message_block">
+                
+            </div>
             <div class="area-input">
                 <input class="input-text" type="text" id="input-text" name="message" placeholder="Введите сообщение">
                 <button class="btn-post">

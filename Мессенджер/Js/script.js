@@ -6,6 +6,7 @@ const INTERVAL_UPDATE_MSG = 5000;
 var CURRENT_CHAT;
 var GLOBAL_TIMERS = [];
 var TIMER_UPDATE_MSG;
+var TIMER_BLINK_CHAT = false;
 //#endregion
 
 //#region Комбайны
@@ -87,12 +88,12 @@ first();
 
 //#region Функции
 
-//#region Остановление всех интервалов
+//#region Остановка всех интервалов
 function stopTimers() {
     clearInterval(TIMER_UPDATE_MSG)
     GLOBAL_TIMERS.forEach(element => {
         clearInterval(element)
-        
+
     })
 }
 //#endregion
@@ -156,12 +157,14 @@ function registration() {
                     //console.log(token);
                     _load('/Modules/WORK.html', function (responseText) {
                         CONTENT.innerHTML = responseText;
+                        _elem('.user-inf img').src = `${HOST}${regData.Data.photo_link}`;
                         document.querySelector('.user-name').textContent = regData.Data.fam + " " + regData.Data.name;
                         // document.querySelector('.user-img').src
                         getChats();
                         createChat();
                         userInfo();
                         btnPostMessHandler();
+                        
                     })
                 }
                 else {
@@ -173,7 +176,7 @@ function registration() {
 }
 //#endregion
 
-//#region Авризация
+//#region Авторизация
 function auth() {
     //console.log("fwsedfgwd");
     _elem(".btn-auth").addEventListener('click', function () {
@@ -190,8 +193,7 @@ function auth() {
                 AuthData = JSON.parse(HTTP_REQUEST.responseText);
                 console.log(AuthData);
                 if (AuthData.message) {
-                    token = AuthData.Data.token;
-                    UserID = AuthData.Data.id
+
                     // pass = AuthData.Data.pass
                     // fam = AuthData.Data.fam
                     // nam = AuthData.Data.name
@@ -208,7 +210,12 @@ function auth() {
                     nam = AuthData.Data.name
                     otch = AuthData.Data.otch
                     photo = AuthData.Data.photo_link
-                    
+
+                    token = AuthData.Data.token;
+                    UserID = AuthData.Data.id
+
+
+
                     localStorage.setItem('_pass', pass);
                     localStorage.setItem('_fam', fame);
                     localStorage.setItem('_name', nam);
@@ -217,6 +224,8 @@ function auth() {
 
                     localStorage.setItem('_token', token);
                     localStorage.setItem('_UserID', UserID);
+
+
 
                     //console.log(token);
                     _load('/Modules/WORK.html', function (responseText) {
@@ -262,9 +271,12 @@ function getChats() {
                         createChatBlock(element)
                     )
                 } else {
-                    // if (block_chats.getAttribute('last-msg') != element.chat_last_message) {
-                    //     block_chats.style = 'background-color:red;'
-                    // }
+                    if (block_chats.getAttribute('last-msg') != element.chat_last_message) {
+                        // block_chats.style = 'background-color:red;'
+                        TIMER_BLINK_CHAT = setInterval(() => {
+                            block_chats.classList.toggle('chat-alert')
+                        }, 500);
+                    }
                 }
             });
         }
@@ -291,6 +303,7 @@ function createChat() {
                 //console.log(CreateData);
                 getChats();
                 _elem('.block_chats').append(getChats());
+                _elem('input[name = "email-work"]').value = ''
             }
         }
         // _post({url:`${HOST}/chats/`, Data: crdata}, function(responseText){
@@ -344,6 +357,7 @@ function createChatBlock(chatdata) {
         this.classList.add('active');
 
         clearInterval(TIMER_UPDATE_MSG);
+        
 
         _elem('.message_block').innerHTML = '';
         getMessage(chatdata.chat_id);
@@ -351,11 +365,20 @@ function createChatBlock(chatdata) {
             getMessage(chatdata.chat_id);
         }, INTERVAL_UPDATE_MSG);
 
+        _elem('.change-name-chat-area').classList.remove('hidden')
         _elem('.message_block').classList.remove('hidden');
         _elem('.area-input').classList.remove('hidden');
-    }
+        changeNameChat()
 
+    }
+    // chatBlock.onmouseenter = function(){
+    //     CURRENT_CHAT = chatdata.chat_id
+    //     let changeBlock = document.createElement('div')
+    //     changeBlock.classList.add('change-block')
+    //     changeBlock.id = `chat_${chatdata.chat_id}`
+    // }
     //console.log('createChatBlock()');
+
     return chatBlock
 
 }
@@ -365,8 +388,7 @@ function createChatBlock(chatdata) {
 
 function userInfo() {
     _elem('.fa-bars').onclick = function () {
-        _elem('.user-block').classList.toggle('hidden');
-        changeInfoUser();
+        _elem('.user-block').classList.remove('hidden');
         loadInfo();
         closeInfo();
     }
@@ -375,6 +397,7 @@ function userInfo() {
 function closeInfo() {
     _elem('.fa-xmark').onclick = function () {
         _elem('.user-block').classList.add('hidden');
+        _elem('.user-change').classList.add('hidden');
         userInfo();
     }
 }
@@ -398,7 +421,8 @@ function loadInfo() {
             _elem('.user-block .user-email').textContent = userData.email;
             _elem('.user-block .user-fam').textContent = userData.fam;
             _elem('.user-block .user-name-work').textContent = userData.name;
-            
+            changeInfoUser()
+            deleteUser()
             exit();
             //console.log(userData);
         }
@@ -487,7 +511,7 @@ function getMessage(chat_id) {
 
 //#endregion
 
-//#region Создаие блока для сообщения
+//#region Создание блока для сообщения
 
 function makeMess(mess) {
 
@@ -534,6 +558,7 @@ function btnPostMessHandler() {
         HTTP_REQUEST.onreadystatechange = function () {
             if (HTTP_REQUEST.readyState == 4) {
                 postData = JSON.parse(HTTP_REQUEST.responseText);
+                _elem('input[name="message"]').value = "";
                 localStorage.getItem('_token');
                 localStorage.getItem('_UserID');
                 // console.log(postData);
@@ -545,27 +570,108 @@ function btnPostMessHandler() {
     )
 }
 
-function changeInfoUser() {
-    _elem('.footer-change').addEventListener('click', function () {
-        let changeus = new FormData();
-        changeus.append('pass', localStorage.getItem('_pass'));
-        changeus.append('fam', localStorage.getItem('_fam'));
-        changeus.append('name', localStorage.getItem('_name'));
-        changeus.append('otch', localStorage.getItem('_otch'));
-        changeus.append('photo_link', localStorage.getItem('_photo'));
+//#endregion
 
-        localStorage.getItem('_userInf');
+//#region Изменить информацию о пользователе
+
+function changeInfoUser() {
+
+    _elem('.footer-change').onclick = function () {
+        _elem('.user-change').classList.toggle('hidden');
+    }
+
+    _elem('.change-back').onclick = function () {
+        _elem('.user-change').classList.add('hidden');
+    }
+
+    changeInfoUserHandler()
+    // _elem('.footer-change').addEventListener('click', function () {
+    //     _elem('.user-block-body').classList.add('hidden')
+    //     _elem('.footer').classList.add('hidden')
+    //     _elem('.user-change').classList.remove('hidden')
+    //     closeInfo()
+
+    //     let changeus = new FormData();
+
+    //     let HTTP_REQUEST = new XMLHttpRequest();
+    //     HTTP_REQUEST.open('PUT', `${HOST}/user/`);
+    //     HTTP_REQUEST.setRequestHeader("Athorization", "Bearer " + localStorage.getItem('token'));
+    //     HTTP_REQUEST.send(changeus);
+    //     HTTP_REQUEST.onreadystatechange = function(){
+    //         if (HTTP_REQUEST.readyState == 4) {
+    //         changeData = JSON.parse(HTTP_REQUEST.responseText);
+    //         console.log(changeData);
+    //     }
+    //     }
+    // })
+}
+
+function changeInfoUserHandler() {
+    _elem('.change-data').addEventListener('click', function () {
+        let changeus = new FormData();
+        changeus.append('pass', _elem('input[name="change-pass"]').value)
+        changeus.append('fam', _elem('input[name="change-fam"]').value)
+        changeus.append('name', _elem('input[name="change-name"]').value)
+        changeus.append('otch', _elem('input[name="change-otch"]').value)
+        changeus.append('photo_link', _elem('img[id="user-change-img"]').src)
         let HTTP_REQUEST = new XMLHttpRequest();
-        HTTP_REQUEST.open('GET', `${HOST}/user/`);
-        HTTP_REQUEST.setRequestHeader("Athorization", "Bearer " + localStorage.getItem('token'));
+        HTTP_REQUEST.open('PUT', `${HOST}/user/?pass=${_elem('input[name="change-pass"]').value}&fam=${_elem('input[name="change-fam"]').value}&name=${_elem('input[name="change-name"]').value}&otch=${_elem('input[name="change-otch"]').value}`);
+        HTTP_REQUEST.setRequestHeader("Authorization", "Bearer " + localStorage.getItem('_token'));
         HTTP_REQUEST.send(changeus);
-        if (HTTP_REQUEST.readyState == 4) {
-            changeData = JSON.parse(HTTP_REQUEST.responseText);
+        HTTP_REQUEST.onreadystatechange = function () {
+            if (HTTP_REQUEST.readyState == 4) {
+                // changeData = JSON.parse(HTTP_REQUEST.responseText);
+                _elem('.user-name').textContent = '';
+                _elem('.user-name').append(_elem('input[name="change-fam"]').value + " " + _elem('input[name="change-name"]').value);
+            }
+            
+            
         }
     })
 }
 
 //#endregion
+
+//#region Удаление пользователя из системы
+
+function deleteUser(){
+    _elem('.delete-user').addEventListener('click', function(){
+        let deluser = new FormData();
+        let HTTP_REQUEST = new XMLHttpRequest();
+        HTTP_REQUEST.open('DELETE', `${HOST}/user/`);
+        HTTP_REQUEST.setRequestHeader("Authorization", "Bearer " + localStorage.getItem('_token'));
+        HTTP_REQUEST.send(deluser);
+        HTTP_REQUEST.onreadystatechange = function(){
+            if(HTTP_REQUEST.readyState == 4){
+                first();
+            }
+        }
+    })
+}
+
+//#endregion
+
+//#region Изменение имени чата
+
+function changeNameChat(){
+    _elem('.change-name-btn').addEventListener('click', function(){
+        let changech = new FormData();
+        let HTTP_REQUEST = new XMLHttpRequest();
+        HTTP_REQUEST.open('PUT', `${HOST}/chats/?chat_id=${localStorage.getItem('_chatID')}&chat_name=${_elem('input[name="change-name-input"]').value}`);
+        HTTP_REQUEST.setRequestHeader("Authorization", "Bearer " + localStorage.getItem('_token'));
+        HTTP_REQUEST.send(changech);
+        HTTP_REQUEST.onreadystatechange = function(){
+            if(HTTP_REQUEST.readyState == 4){
+                changeDataChat = JSON.parse(HTTP_REQUEST.responseText);
+                _elem(`#chat_${changeDataChat.Data.chat_id} p`).textContent = changeDataChat.Data.chat_name;
+            }
+        }
+    })
+}
+
+//#endregion
+
+
 
 //#endregion
 
