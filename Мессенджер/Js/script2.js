@@ -273,22 +273,41 @@ function getChats() {
                     )
                 } else {
                     if (block_chats.getAttribute('last-msg') != element.chat_last_message) {
-                        // block_chats.style = 'background-color:red;'
-                        TIMER_BLINK_CHAT = setInterval(() => {
-                            block_chats.classList.toggle('chat-alert');
-                        }, 500);
+                        if (block_chats.classList.contains('active')) {
+                            block_chats.classList.remove('active');
+                        }
+                        block_chats.classList.add('chat-alert');
+
                     }
                     // block_chats.addEventListener('click', function(){
                     //     clearInterval(TIMER_BLINK_CHAT)
                     //     block_chats.classList.remove('chat-alert')
                     // })
-                    // else{
-                    //     block_chats.onclick = function(){
+
+                    else {
+                        _elem(`#chat_${element.chat_id}`).addEventListener('click', function () {
+                            if(_elem(`#chat_${element.chat_id}`).classList.contains('chat-alert')){
+                                block_chats.classList.remove('chat-alert')
+                            }
+                            // block_chats.classList.remove('chat-alert')
+                            block_chats.setAttribute('last-msg', element.chat_last_message)
+                        })
+                        // block_chats.classList.remove('chat-alert')
+                        // block_chats.setAttribute('last-msg', element.chat_last_message)
+                    }
+
+
+                    // else {
+                    //     block_chats.onclick = function () {
+                    //         // if(TIMER_BLINK_CHAT){
+                    //         //     clearInterval(TIMER_BLINK_CHAT)
+                    //         // }
+                    //         block_chats.classList.remove('chat-alert');
+                    //         block_chats.setAttribute('last-msg', element.chat_last_message)
+                    //         return
 
                     //     }
-                    //     if(TIMER_BLINK_CHAT){
-                    //         clearInterval(TIMER_BLINK_CHAT)
-                    //     }
+
                     // }
                 }
             });
@@ -346,7 +365,7 @@ function createChatBlock(chatdata) {
 
 
     // chatBlock.onclick = function () {
-        
+
     //     getMessage(chatdata.chat_id);
     //     // //console.log(CURRENT_CHAT);
 
@@ -358,8 +377,8 @@ function createChatBlock(chatdata) {
 
     chatBlock.onclick = function () {
 
-       localStorage.setItem('_chatID', chatdata.chat_id)
-       
+        localStorage.setItem('_chatID', chatdata.chat_id)
+
 
         // console.log(localStorage.getItem('_chatID'));
 
@@ -369,9 +388,9 @@ function createChatBlock(chatdata) {
 
 
 
-//        console.log(CURRENT_CHAT);
+        //        console.log(CURRENT_CHAT);
 
-//        localStorage.setItem('_chatID', CURRENT_CHAT);
+        //        localStorage.setItem('_chatID', CURRENT_CHAT);
 
         // this.style = '';
 
@@ -389,23 +408,23 @@ function createChatBlock(chatdata) {
         //         }
         //     })
         // })
-//        CURRENT_CHAT = chatdata.chat_id;
+        //        CURRENT_CHAT = chatdata.chat_id;
 
         // if(`chat_${CURRENT_CHAT}`){
         //     _elem(`#chat_${CURRENT_CHAT}`).classList.remove('active')
         // }
-//        _elem(`#chat_${CURRENT_CHAT}`).addEventListener('click', function () {
+        //        _elem(`#chat_${CURRENT_CHAT}`).addEventListener('click', function () {
 
 
-            
 
-            if (_elem(`#chat_${CURRENT_CHAT}`) != null) {
-                _elem(`#chat_${CURRENT_CHAT}`).classList.remove('active')
-            }
-            CURRENT_CHAT = chatdata.chat_id
-            _elem(`#chat_${CURRENT_CHAT}`).classList.add('active')
-            
-//        })
+
+        if (_elem(`#chat_${CURRENT_CHAT}`) != null) {
+            _elem(`#chat_${CURRENT_CHAT}`).classList.remove('active')
+        }
+        CURRENT_CHAT = chatdata.chat_id
+        _elem(`#chat_${CURRENT_CHAT}`).classList.add('active')
+
+        //        })
 
         // if (Array.isArray(_elem(`#chat_${CURRENT_CHAT}`))){
         //     _elem('.block_chat').forEach(element => {

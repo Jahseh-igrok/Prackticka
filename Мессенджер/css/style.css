@@ -1,11 +1,11 @@
-
-body{
+body {
     margin: 0 auto;
     width: 100vw;
     overflow: hidden;
 }
+
 /*авторизация*/
-.header{
+.header {
     display: flex;
     padding-top: 40px;
     padding-bottom: 40px;
@@ -16,9 +16,10 @@ body{
     font-family: Raleway, sans-serif;
     font-weight: 400;
     /* background: linear-gradient(to bottom,#d670f5, #7387f3) ; */
-   background: linear-gradient(90deg, #d35bf8,#fc39be,#ff3286,#fb4955,#e2632c);
+    background: linear-gradient(90deg, #d35bf8, #fc39be, #ff3286, #fb4955, #e2632c);
 }
-.after_header{
+
+.after_header {
     padding-top: 100px;
     padding-bottom: 100px;
     display: flex;
@@ -26,10 +27,11 @@ body{
     justify-content: center;
     background-color: #7387f3;
     /* background: linear-gradient(to bottom,#7387f3, #d670f5) ; */
-   background: linear-gradient(90deg, #d35bf8,#fc39be,#ff3286,#fb4955,#e2632c);
+    background: linear-gradient(90deg, #d35bf8, #fc39be, #ff3286, #fb4955, #e2632c);
     height: 100vh;
 }
-.logo{
+
+.logo {
     transform: translateX(-25vw);
     top: 2px;
     bottom: 20px;
@@ -37,7 +39,8 @@ body{
     width: 100px;
     height: 100px;
 }
-.wind_auth{
+
+.wind_auth {
     display: block;
     width: 500px;
     height: 450px;
@@ -46,28 +49,33 @@ body{
     border-radius: 20px;
     font-family: montserrat, sans-serif;
     /* background: linear-gradient(to top,#7387f3, #d670f5); */
-    background: linear-gradient(90deg, #e2632c,#fb4955,#ff3286,#fc39be,#d35bf8);
+    background: linear-gradient(90deg, #e2632c, #fb4955, #ff3286, #fc39be, #d35bf8);
 }
-.head_auth{
+
+.head_auth {
     color: #ffffff;
     font-size: 48px;
-    border: 2px solid linear-gradient(to right,#d670f5, #7387f3);
+    border: 2px solid linear-gradient(to right, #d670f5, #7387f3);
     /* background: linear-gradient(to right,#d670f5); */
-   background: linear-gradient(90deg, #d35bf8,#fc39be,#ff3286,#fb4955,#e2632c);
+    background: linear-gradient(90deg, #d35bf8, #fc39be, #ff3286, #fb4955, #e2632c);
     border-radius: 40px;
     width: 350px;
     height: 60px;
     margin-left: 18%;
     margin-top: 3%;
 }
-.mess{
+
+.mess {
     margin-top: 15px;
 }
-.isq{
+
+.isq {
     margin-top: 15px;
-    color: linear-gradient(to bottom,#d670f5, #7387f3) ;;
+    color: linear-gradient(to bottom, #d670f5, #7387f3);
+    ;
 }
-.btn-head{
+
+.btn-head {
     color: rgb(255, 255, 255);
     height: 55px;
     width: 150px;
@@ -79,7 +87,8 @@ body{
     top: 15px;
     left: 25vw;
 }
-.btn-head:hover{
+
+.btn-head:hover {
     cursor: pointer;
     background-color: #fff;
     color: #000000;
@@ -95,26 +104,31 @@ body{
     -ms-transition: background-color .3s;
     -o-transition: background-color .3s;
 }
-.auth-input{
+
+.auth-input {
     height: 40px;
     width: 70%;
     margin-top: 60px;
     font-size: 24px;
 }
-.auth-lable{
+
+.auth-lable {
     font-size: 24px;
 }
-.auth-input1{
+
+.auth-input1 {
     margin-left: 15px;
     height: 40px;
     width: 70%;
     margin-top: 60px;
     font-size: 24px;
 }
-.auth-lable1{
+
+.auth-lable1 {
     font-size: 24px;
 }
-.btn-auth{
+
+.btn-auth {
     color: rgb(255, 255, 255);
     height: 55px;
     width: 160px;
@@ -126,7 +140,8 @@ body{
     top: 50px;
     margin-right: 20px;
 }
-.btn-auth:hover{
+
+.btn-auth:hover {
     cursor: pointer;
     background-color: #fff;
     color: #000000;
@@ -142,7 +157,8 @@ body{
     -ms-transition: background-color .3s;
     -o-transition: background-color .3s;
 }
-.btn-reg{
+
+.btn-reg {
     color: rgb(255, 255, 255);
     height: 55px;
     width: 160px;
@@ -154,8 +170,9 @@ body{
     top: 50px;
     margin-right: 20px;
 }
+
 /*конец авторизации*/
-.btn-reg:hover{
+.btn-reg:hover {
     cursor: pointer;
     background-color: #fff;
     color: #000000;
@@ -171,7 +188,8 @@ body{
     -ms-transition: background-color .3s;
     -o-transition: background-color .3s;
 }
-.btn-head-reg{
+
+.btn-head-reg {
     color: rgb(255, 255, 255);
     height: 55px;
     width: 150px;
@@ -183,7 +201,8 @@ body{
     top: 15px;
     left: 25vw;
 }
-.btn-head-reg:hover{
+
+.btn-head-reg:hover {
     cursor: pointer;
     background-color: #fff;
     color: #000000;
@@ -199,7 +218,8 @@ body{
     -ms-transition: background-color .3s;
     -o-transition: background-color .3s;
 }
-.btn-registr{
+
+.btn-registr {
     color: rgb(255, 255, 255);
     height: 55px;
     width: 150px;
@@ -211,7 +231,8 @@ body{
     top: 50px;
     margin-right: 20px;
 }
-.btn-registr:hover{
+
+.btn-registr:hover {
     cursor: pointer;
     background-color: #fff;
     color: #000000;
@@ -227,7 +248,8 @@ body{
     -ms-transition: background-color .3s;
     -o-transition: background-color .3s;
 }
-.btn-back{
+
+.btn-back {
     color: rgb(255, 255, 255);
     height: 55px;
     width: 150px;
@@ -239,7 +261,8 @@ body{
     top: 50px;
     margin-right: 20px;
 }
-.btn-back:hover{
+
+.btn-back:hover {
     cursor: pointer;
     background-color: #fff;
     color: #000000;
@@ -255,7 +278,8 @@ body{
     -ms-transition: background-color .3s;
     -o-transition: background-color .3s;
 }
-.reg-body{
+
+.reg-body {
     padding-top: 100px;
     padding-bottom: 100px;
     display: flex;
@@ -264,14 +288,15 @@ body{
     background-color: #7387f3;
     /* background: linear-gradient(to bottom,#7387f3, #d670f5) ; */
 
-    background: linear-gradient(90deg, #d35bf8,#fc39be,#ff3286,#fb4955,#e2632c);
+    background: linear-gradient(90deg, #d35bf8, #fc39be, #ff3286, #fb4955, #e2632c);
     height: 100vh;
 }
-.reg-head{
+
+.reg-head {
     color: #ffffff;
     font-size: 48px;
-    border: 2px solid linear-gradient(to right,#d670f5, #7387f3);
-    background: linear-gradient(90deg, #d35bf8,#fc39be,#ff3286,#fb4955,#e2632c);
+    border: 2px solid linear-gradient(to right, #d670f5, #7387f3);
+    background: linear-gradient(90deg, #d35bf8, #fc39be, #ff3286, #fb4955, #e2632c);
     border-radius: 40px;
     width: 350px;
     height: 60px;
@@ -279,31 +304,35 @@ body{
     margin-top: 3%;
 
 }
-.wind-reg{
+
+.wind-reg {
     display: block;
     width: 500px;
     height: 750px;
     text-align: center;
     border: 4px solid #000000;
     border-radius: 20px;
-    font-family: montserrat, sans-serif;;
+    font-family: montserrat, sans-serif;
+    ;
     /* background: linear-gradient(to top,#7387f3, #d670f5); */
-    background: linear-gradient(90deg, #e2632c,#fb4955,#ff3286,#fc39be,#d35bf8);
+    background: linear-gradient(90deg, #e2632c, #fb4955, #ff3286, #fc39be, #d35bf8);
 }
 
-.menu{
+.menu {
     display: block;
     width: 20vw;
     height: 100vh;
-    background: linear-gradient(90deg, #d35bf8,#fc39be,#ff3286,#fb4955,#e2632c);
+    background: linear-gradient(90deg, #d35bf8, #fc39be, #ff3286, #fb4955, #e2632c);
     border-right: 4px solid #000000;
 }
-.user-inf{
+
+.user-inf {
     display: flex;
     height: 12%;
     border-bottom: 4px solid #000000;
 }
-.user-photo{
+
+.user-photo {
     position: relative;
     margin-left: 20px;
     top: 25%;
@@ -312,35 +341,38 @@ body{
     border: 3px solid #000000;
     border-radius: 50%;
 }
-.user-name{
+
+.user-name {
     font-family: montserrat, sans-serif;
     width: 50%;
     height: 50%;
     position: relative;
-    white-space: nowrap; 
-    overflow: hidden; 
-    text-overflow: ellipsis; 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     margin-left: 30px;
     top: 33%;
     font-size: 2rem;
 }
-.fa-solid{
+
+.fa-solid {
     position: relative;
     right: -4%;
     top: 32%;
     font-size: 300%;
     cursor: pointer;
 }
-.chats-area{
+
+.chats-area {
     display: block;
     height: 88%;
     overflow-y: auto;
 }
 
-.input-text{
+.input-text {
     border: 3px solid #000000;
     border-radius: 30px;
-    background: linear-gradient(90deg, #d35bf8,#fc39be,#ff3286,#fb4955,#e2632c);
+    background: linear-gradient(90deg, #d35bf8, #fc39be, #ff3286, #fb4955, #e2632c);
     position: fixed;
     height: 5vh;
     width: 60vw;
@@ -349,7 +381,8 @@ body{
     margin-top: 60px;
     left: 25vw;
 }
-.btn-post{
+
+.btn-post {
     position: fixed;
     border: none;
     margin-left: 60px;
@@ -362,7 +395,8 @@ body{
     left: 83vw;
     margin-top: 60px;
 }
-.btn-post:hover{
+
+.btn-post:hover {
     cursor: pointer;
     background-color: #fff;
     color: #000000;
@@ -377,7 +411,8 @@ body{
     -ms-transition: background-color .3s;
     -o-transition: background-color .3s;
 }
-.defense{
+
+.defense {
     background: linear-gradient(to right #b6bff3, #b66dcc);
     border-radius: 50px;
     display: flex;
@@ -386,7 +421,8 @@ body{
     height: 60px;
     position: relative;
 }
-.create-chat{ 
+
+.create-chat {
     position: relative;
     border: none;
     top: 1.6vw;
@@ -398,7 +434,8 @@ body{
     font-size: 1.5rem;
     left: 1vw;
 }
-.create-chat:hover{
+
+.create-chat:hover {
     cursor: pointer;
     background-color: #fff;
     color: #000000;
@@ -413,101 +450,120 @@ body{
     -ms-transition: background-color .3s;
     -o-transition: background-color .3s;
 }
-.auth-input12{
+
+.auth-input12 {
     font-size: 24px;
     position: relative;
     width: 51%;
     border: none;
-    left: 43%; 
+    left: 43%;
 }
-.settings-user{
-    background: linear-gradient(90deg, #d35bf8,#fc39be,#ff3286,#fb4955,#e2632c);
-    position: relative;    
+
+.settings-user {
+    background: linear-gradient(90deg, #d35bf8, #fc39be, #ff3286, #fb4955, #e2632c);
+    position: relative;
     height: 300px;
 }
-.block_chats{
+
+.block_chats {
     display: block;
     margin-top: 50px;
     position: relative;
     width: 100%;
     height: 50px;
 }
-.block_chat{
+
+.block_chat {
     font-family: Raleway, sans-serif;
     font-size: 30px;
     padding-right: 0;
     display: flex;
     position: relative;
     width: 100%;
-    background: linear-gradient(90deg, #e2632c,#fb4955,#ff3286,#fc39be,#d35bf8);
+    background: linear-gradient(90deg, #e2632c, #fb4955, #ff3286, #fc39be, #d35bf8);
     border-top: 3px solid #000000;
     border-bottom: 3px solid #000000;
     margin-bottom: 10px;
+
+    &.active {
+        background: linear-gradient(90deg, #bdffbf, #ffe1d1, #f4b3ff, #bdf5ff) !important;
+    }
 }
-.block_chat:hover{
+
+.block_chat:hover {
     cursor: pointer;
-    background: linear-gradient(90deg, #0be212,#0092c8,#453453);
+    background: linear-gradient(90deg, #0be212, #0092c8, #453453);
 }
-img{
+
+img {
     margin-left: 30px;
     width: 100px;
     height: 100px;
     border-radius: 50px;
 }
-p{
+
+p {
     margin-left: 20px;
 }
-.hidden{
+
+.hidden {
     display: none !important;
 }
-.fa-xmark{
+
+.fa-xmark {
     font-size: 40px;
 }
 
-.user-block{
+.user-block {
     border-radius: 20px;
     margin-top: 40px;
     z-index: 1;
     top: 10%;
     left: 1%;
     position: absolute;
-    background: linear-gradient(90deg, #bdffbf,#ffe1d1,#f4b3ff,#bdf5ff);
+    background: linear-gradient(90deg, #bdffbf, #ffe1d1, #f4b3ff, #bdf5ff);
     width: 400px;
     height: 513px;
     display: block;
 }
-.user-block-head{
+
+.user-block-head {
     width: 100%;
     height: 40px;
     display: flex;
     justify-content: center;
     margin-left: 35%;
 }
-.user-img{
+
+.user-img {
     margin: 0 auto;
     width: 200px;
     height: 200px;
     border-radius: 100px;
     margin: 0 auto;
 }
-.user-block-body{
+
+.user-block-body {
     display: block;
     justify-content: center;
     text-align: center;
 }
-.user-email{
+
+.user-email {
     font-family: cursive, sans-serif;
     margin: 0 auto;
     font-size: 20px;
 }
-.user-fam{
+
+.user-fam {
     font-family: Raleway, sans-serif;
     font-weight: 400;
     font-size: 48px;
     margin: 0 auto;
     margin-top: 30px;
 }
-.user-name-work{
+
+.user-name-work {
     margin: 0 auto;
     height: 20px;
     font-family: Raleway, sans-serif;
@@ -515,27 +571,27 @@ p{
     font-weight: 400;
 }
 
-.user-change{
+.user-change {
     border-radius: 20px;
     margin-top: 40px;
     z-index: 1;
     top: 10%;
     left: 1%;
     position: absolute;
-    background: linear-gradient(90deg, #bdffbf,#ffe1d1,#f4b3ff,#bdf5ff);
+    background: linear-gradient(90deg, #bdffbf, #ffe1d1, #f4b3ff, #bdf5ff);
     width: 400px;
     height: 513px;
     display: block;
 }
 
-.user-change-body{
+.user-change-body {
     display: block;
     justify-content: center;
     text-align: center;
     padding-top: 40px;
 }
 
-.user-change-head{
+.user-change-head {
     width: 100%;
     height: 40px;
     display: flex;
@@ -547,10 +603,11 @@ p{
 }
 
 
-.footer{
+.footer {
     display: flex;
 }
-.footer-change{
+
+.footer-change {
     border-bottom-left-radius: 20px;
     margin-top: 17%;
     height: 67px;
@@ -558,28 +615,33 @@ p{
     font-size: 32px;
     text-align: center;
 }
-.footer-change:hover{
+
+.footer-change:hover {
     background-color: #ce96df;
     cursor: pointer;
 }
-.footer-change-text{
+
+.footer-change-text {
     font-family: Raleway, sans-serif;
     font-weight: 400;
     margin: 0 auto;
     margin-top: 3px;
     font-size: 26px;
 }
-.footer-exit{
+
+.footer-exit {
     margin-top: 17%;
     height: 67px;
-    width: 33.3%;    
+    width: 33.3%;
     text-align: center;
 }
-.footer-exit:hover{
+
+.footer-exit:hover {
     background-color: #ce96df;
     cursor: pointer;
 }
-.footer-exit-text{
+
+.footer-exit-text {
     font-family: Raleway, sans-serif;
     font-weight: 400;
     color: red;
@@ -587,7 +649,8 @@ p{
     margin-top: 13px;
     font-size: 28px;
 }
-.delete-user{
+
+.delete-user {
     border-bottom-right-radius: 20px;
     margin-top: 17%;
     height: 67px;
@@ -595,11 +658,13 @@ p{
     font-size: 32px;
     text-align: center;
 }
-.delete-user:hover{
+
+.delete-user:hover {
     background-color: #ce96df;
     cursor: pointer
 }
-.delete-user-text{
+
+.delete-user-text {
     font-family: Raleway, sans-serif;
     font-weight: 400;
     color: red;
@@ -607,10 +672,11 @@ p{
     font-size: 26px;
 }
 
-.msg{
+.msg {
     height: 8%;
 }
-.msg-my{
+
+.msg-my {
     position: relative;
     margin-left: 40px;
     border-radius: 20px;
@@ -618,9 +684,10 @@ p{
     font-family: Raleway, sans-serif;
     width: 15%;
     height: 15%;
-    background: linear-gradient(90deg, #a2a8ff,#eececf);
+    background: linear-gradient(90deg, #a2a8ff, #eececf);
 }
-.msg-me{
+
+.msg-me {
     position: relative;
     left: 80%;
     border-radius: 20px;
@@ -630,39 +697,45 @@ p{
     height: 15%;
     background: linear-gradient(90deg, #eececf, #a2a8ff);
 }
-&.active{
+
+&.active {
     background-color: #000000;
 }
-.WORK{
+
+.WORK {
     width: 100vw;
     display: flex;
-    
+
     overflow: hidden;
 }
-.message_block{
+
+.message_block {
     height: 1010px;
     overflow-y: auto;
 }
-.wind-work{
+
+.wind-work {
     width: 80vw;
-    background: linear-gradient(90deg, #de9cb8,#9dcde1,#dc8eb8,#98d3ec);
+    background: linear-gradient(90deg, #de9cb8, #9dcde1, #dc8eb8, #98d3ec);
     display: block;
     overflow: hidden;
 }
-.area-input{
+
+.area-input {
     position: fixed;
     top: 85%;
     display: flex;
     width: 80vw;
     height: 15vh;
-    background: linear-gradient(90deg, #de9cb8,#9dcde1,#dc8eb8,#98d3ec);
+    background: linear-gradient(90deg, #de9cb8, #9dcde1, #dc8eb8, #98d3ec);
     border-radius: 100px;
     /* border: 2px solid #7387f3 ; */
 }
-.input-text{
+
+.input-text {
     border: 3px solid #000000;
     border-radius: 30px;
-    background: linear-gradient(90deg, #ffffff,#56246e);
+    background: linear-gradient(90deg, #ffffff, #56246e);
     position: fixed;
     height: 5vh;
     width: 60vw;
@@ -671,63 +744,74 @@ p{
     margin-top: 60px;
     left: 25vw;
 }
-.user-change-body img{
+
+.user-change-body img {
     margin: 0 auto;
 }
-.change-input{
+
+.change-input {
     font-size: 20px;
     margin-top: 10px;
     width: 90%;
     height: 30px;
 }
-.footer-change-body{
+
+.footer-change-body {
     padding-top: 70px;
     display: flex;
 }
-.change-data{
+
+.change-data {
     border-bottom-left-radius: 20px;
     padding: 0 auto;
     text-align: center;
     width: 50%;
     height: 60px;
 }
-.change-data:hover{
+
+.change-data:hover {
     background-color: #ce96df;
     cursor: pointer;
 }
-.change-back{
+
+.change-back {
     border-bottom-right-radius: 20px;
     padding: 0 auto;
     text-align: center;
     width: 50%;
     height: 60px;
 }
-.change-back:hover{
+
+.change-back:hover {
     background-color: #ce96df;
     cursor: pointer;
 }
-.change-data-text{
+
+.change-data-text {
     font-family: Raleway, sans-serif;
     font-weight: 400;
     margin: 0 auto;
     margin-top: 15px;
     font-size: 24px;
 }
-.change-back-text{
+
+.change-back-text {
     font-family: Raleway, sans-serif;
     font-weight: 400;
     margin: 0 auto;
     margin-top: 15px;
     font-size: 24px;
 }
-.change-name-chat-area{
+
+.change-name-chat-area {
     position: absolute;
-    background: linear-gradient(90deg, #de9cb8,#9dcde1,#dc8eb8,#98d3ec);
+    background: linear-gradient(90deg, #de9cb8, #9dcde1, #dc8eb8, #98d3ec);
     width: 20%;
     height: 100px;
     top: 92%;
 }
-.change-name-input{
+
+.change-name-input {
     position: relative;
     left: 35px;
     margin-top: 30px;
@@ -735,7 +819,8 @@ p{
     height: 40px;
     font-size: 20px;
 }
-.change-name-btn{
+
+.change-name-btn {
     position: relative;
     height: 40px;
     left: 15px;
@@ -743,13 +828,32 @@ p{
     color: rgb(255, 255, 255);
     border-radius: 100px;
 }
-.change-name-btn:hover{
+
+.change-name-btn:hover {
     background-color: #fff;
     color: #000000;
     border: none;
     transition: .3s;
 }
-.chat-alert{
-    background: #c2b9b9 !important;
-    transition: .3s;
+
+
+@keyframes blink {
+
+    0%,
+    100% {
+        background: #c2b9b9;
+    }
+
+    /* Элемент виден */
+    50% {
+        background: linear-gradient(90deg, #e2632c, #fb4955, #ff3286, #fc39be, #d35bf8);
+    }
+
+    /* Элемент мерцает и становится невидимым! */
+}
+
+
+
+.chat-alert {
+    animation: blink 1s step-end infinite !important;
 }
