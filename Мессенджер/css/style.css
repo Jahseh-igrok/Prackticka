@@ -841,7 +841,7 @@ p {
 
     0%,
     100% {
-        background: #c2b9b9;
+        background: linear-gradient(90deg, #0be212, #0092c8, #453453);
     }
 
     /* Элемент виден */

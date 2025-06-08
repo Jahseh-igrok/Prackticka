@@ -106,6 +106,9 @@ function first() {
         auth();
         stopTimers()
         clearTimeout()
+        _elem('.btn-head').addEventListener('click', function () {
+            window.open("https://www.google.com/", "_self")
+        })
         localStorage.removeItem('_token');
         localStorage.removeItem('_UserID');
         localStorage.removeItem('_chatID');
@@ -193,6 +196,7 @@ function auth() {
             if (HTTP_REQUEST.readyState == 4) {
                 AuthData = JSON.parse(HTTP_REQUEST.responseText);
                 console.log(AuthData);
+
                 if (AuthData.message) {
 
                     // pass = AuthData.Data.pass
@@ -271,26 +275,31 @@ function getChats() {
                     _elem('.block_chats').append(
                         createChatBlock(element)
                     )
+
                 } else {
                     if (block_chats.getAttribute('last-msg') != element.chat_last_message) {
-                        // block_chats.style = 'background-color:red;'
-                        TIMER_BLINK_CHAT = setInterval(() => {
-                            block_chats.classList.toggle('chat-alert');
-                        }, 500);
-                    }
-                    // block_chats.addEventListener('click', function(){
-                    //     clearInterval(TIMER_BLINK_CHAT)
-                    //     block_chats.classList.remove('chat-alert')
-                    // })
-                    // else{
-                    //     block_chats.onclick = function(){
+                        if (block_chats.classList.contains('active')) {
+                            block_chats.classList.remove('active');
+                        }
+                        block_chats.classList.add('chat-alert');
+                        console.log(element.chat_last_message);
+                        block_chats.addEventListener('click', function () {
+                            if (block_chats.classList.contains('chat-alert')) {
+                                block_chats.classList.remove('chat-alert')
+                            }
+                            block_chats.setAttribute('last-msg', element.chat_last_message);
+                        })
 
-                    //     }
-                    //     if(TIMER_BLINK_CHAT){
-                    //         clearInterval(TIMER_BLINK_CHAT)
-                    //     }
-                    // }
+
+                    }
+
+                    else {
+
+                    }
                 }
+
+                // return block_chats
+
             });
         }
     }
@@ -345,8 +354,10 @@ function createChatBlock(chatdata) {
     chatBlock.setAttribute('last-msg', chatdata.chat_last_message);
 
 
+
+
     // chatBlock.onclick = function () {
-        
+
     //     getMessage(chatdata.chat_id);
     //     // //console.log(CURRENT_CHAT);
 
@@ -357,9 +368,23 @@ function createChatBlock(chatdata) {
     // }
 
     chatBlock.onclick = function () {
+        // console.log(chatdata.chat_last_message);
 
-       localStorage.setItem('_chatID', chatdata.chat_id)
-       
+        localStorage.setItem('_chatID', chatdata.chat_id)
+
+        // if(chatBlock.getAttribute('last-msg')!=chatdata.chat_last_message){
+        //     if(chatBlock.classList.contains('active')){
+        //         chatBlock.classList.remove('active');
+        //     }
+        //     chatBlock.classList.add('chat-alert');
+        //     chatBlock.addEventListener('click', function(){
+        //         if(chatBlock.classList.contains('chat-alert')){
+        //             chatBlock.classList.remove('chat-alert')
+        //             chatBlock.setAttribute('last-msg',chatdata.chat_last_message)
+        //         }
+        //     })
+        // }
+
 
         // console.log(localStorage.getItem('_chatID'));
 
@@ -369,9 +394,9 @@ function createChatBlock(chatdata) {
 
 
 
-//        console.log(CURRENT_CHAT);
+        //        console.log(CURRENT_CHAT);
 
-//        localStorage.setItem('_chatID', CURRENT_CHAT);
+        //        localStorage.setItem('_chatID', CURRENT_CHAT);
 
         // this.style = '';
 
@@ -389,23 +414,23 @@ function createChatBlock(chatdata) {
         //         }
         //     })
         // })
-//        CURRENT_CHAT = chatdata.chat_id;
+        //        CURRENT_CHAT = chatdata.chat_id;
 
         // if(`chat_${CURRENT_CHAT}`){
         //     _elem(`#chat_${CURRENT_CHAT}`).classList.remove('active')
         // }
-//        _elem(`#chat_${CURRENT_CHAT}`).addEventListener('click', function () {
+        //        _elem(`#chat_${CURRENT_CHAT}`).addEventListener('click', function () {
 
 
-            
 
-            if (_elem(`#chat_${CURRENT_CHAT}`) != null) {
-                _elem(`#chat_${CURRENT_CHAT}`).classList.remove('active')
-            }
-            CURRENT_CHAT = chatdata.chat_id
-            _elem(`#chat_${CURRENT_CHAT}`).classList.add('active')
-            
-//        })
+
+        if (_elem(`#chat_${CURRENT_CHAT}`) != null) {
+            _elem(`#chat_${CURRENT_CHAT}`).classList.remove('active')
+        }
+        CURRENT_CHAT = chatdata.chat_id
+        _elem(`#chat_${CURRENT_CHAT}`).classList.add('active')
+
+        //        })
 
         // if (Array.isArray(_elem(`#chat_${CURRENT_CHAT}`))){
         //     _elem('.block_chat').forEach(element => {
@@ -459,6 +484,7 @@ function createChatBlock(chatdata) {
         }, INTERVAL_UPDATE_MSG);
 
         _elem('.change-name-chat-area').classList.remove('hidden');
+
         _elem('.message_block').classList.remove('hidden');
         _elem('.area-input').classList.remove('hidden');
         changeNameChat();
@@ -710,7 +736,6 @@ function changeInfoUserHandler() {
         changeus.append('fam', _elem('input[name="change-fam"]').value)
         changeus.append('name', _elem('input[name="change-name"]').value)
         changeus.append('otch', _elem('input[name="change-otch"]').value)
-        changeus.append('photo_link', _elem('img[id="user-change-img"]').src)
         let HTTP_REQUEST = new XMLHttpRequest();
         HTTP_REQUEST.open('PUT', `${HOST}/user/?pass=${_elem('input[name="change-pass"]').value}&fam=${_elem('input[name="change-fam"]').value}&name=${_elem('input[name="change-name"]').value}&otch=${_elem('input[name="change-otch"]').value}`);
         HTTP_REQUEST.setRequestHeader("Authorization", "Bearer " + localStorage.getItem('_token'));
@@ -761,6 +786,7 @@ function changeNameChat() {
             if (HTTP_REQUEST.readyState == 4) {
                 changeDataChat = JSON.parse(HTTP_REQUEST.responseText);
                 _elem(`#chat_${changeDataChat.Data.chat_id} p`).textContent = changeDataChat.Data.chat_name;
+                _elem('.change-name-input').value = ''
             }
         }
     })
