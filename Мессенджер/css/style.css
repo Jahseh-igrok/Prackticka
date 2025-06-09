@@ -16,7 +16,7 @@ body {
     font-family: Raleway, sans-serif;
     font-weight: 400;
     /* background: linear-gradient(to bottom,#d670f5, #7387f3) ; */
-    background: linear-gradient(90deg, #d35bf8, #fc39be, #ff3286, #fb4955, #e2632c);
+    background: #E7DFDD;
 }
 
 .after_header {
@@ -27,7 +27,7 @@ body {
     justify-content: center;
     background-color: #7387f3;
     /* background: linear-gradient(to bottom,#7387f3, #d670f5) ; */
-    background: linear-gradient(90deg, #d35bf8, #fc39be, #ff3286, #fb4955, #e2632c);
+    background: #E7DFDD;
     height: 100vh;
 }
 
@@ -45,19 +45,19 @@ body {
     width: 500px;
     height: 450px;
     text-align: center;
-    border: 4px solid #000000;
+    border: none;
     border-radius: 20px;
     font-family: montserrat, sans-serif;
     /* background: linear-gradient(to top,#7387f3, #d670f5); */
-    background: linear-gradient(90deg, #e2632c, #fb4955, #ff3286, #fc39be, #d35bf8);
+    background: #ADB2B5;
 }
 
 .head_auth {
-    color: #ffffff;
+    color: #000000;
     font-size: 48px;
     border: 2px solid linear-gradient(to right, #d670f5, #7387f3);
     /* background: linear-gradient(to right,#d670f5); */
-    background: linear-gradient(90deg, #d35bf8, #fc39be, #ff3286, #fb4955, #e2632c);
+    background: #BDC6CF;
     border-radius: 40px;
     width: 350px;
     height: 60px;
@@ -76,11 +76,11 @@ body {
 }
 
 .btn-head {
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     height: 55px;
     width: 150px;
-    border: 2px solid #000000;
-    background-color: #000000;
+    border: none;
+    background-color: #B5A2A4;
     border-radius: 10px;
     font-size: 24px;
     position: relative;
@@ -92,7 +92,7 @@ body {
     cursor: pointer;
     background-color: #fff;
     color: #000000;
-    border: 2px solid #fff;
+    border: none;
     transition: color .3s;
     -webkit-transition: color .3s;
     -moz-transition: color .3s;
@@ -110,6 +110,7 @@ body {
     width: 70%;
     margin-top: 60px;
     font-size: 24px;
+    border: none;
 }
 
 .auth-lable {
@@ -122,6 +123,7 @@ body {
     width: 70%;
     margin-top: 60px;
     font-size: 24px;
+    border: none;
 }
 
 .auth-lable1 {
@@ -129,11 +131,11 @@ body {
 }
 
 .btn-auth {
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     height: 55px;
     width: 160px;
-    border: 2px solid #000000;
-    background-color: #000000;
+    border: none;
+    background-color: #C5BEB4;
     border-radius: 10px;
     font-size: 24px;
     position: relative;
@@ -145,7 +147,7 @@ body {
     cursor: pointer;
     background-color: #fff;
     color: #000000;
-    border: 2px solid #fff;
+    border: none;
     transition: color .3s;
     -webkit-transition: color .3s;
     -moz-transition: color .3s;
@@ -159,11 +161,11 @@ body {
 }
 
 .btn-reg {
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     height: 55px;
     width: 160px;
-    border: 2px solid #000000;
-    background-color: #000000;
+    border: none;
+    background-color: #C5BEB4;
     border-radius: 10px;
     font-size: 24px;
     position: relative;
@@ -176,7 +178,7 @@ body {
     cursor: pointer;
     background-color: #fff;
     color: #000000;
-    border: 2px solid #fff;
+    border:  none;
     transition: color .3s;
     -webkit-transition: color .3s;
     -moz-transition: color .3s;
@@ -190,11 +192,11 @@ body {
 }
 
 .btn-head-reg {
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     height: 55px;
     width: 150px;
-    border: 2px solid #000000;
-    background-color: #000000;
+    border: none;
+    background-color: #B5A2A4;
     border-radius: 10px;
     font-size: 24px;
     position: relative;
@@ -206,7 +208,7 @@ body {
     cursor: pointer;
     background-color: #fff;
     color: #000000;
-    border: 2px solid #fff;
+    border: none;
     transition: color .3s;
     -webkit-transition: color .3s;
     -moz-transition: color .3s;
@@ -220,11 +222,11 @@ body {
 }
 
 .btn-registr {
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     height: 55px;
     width: 150px;
-    border: 2px solid #000000;
-    background-color: #000000;
+    border: none;
+    background-color: #C5BEB4;
     border-radius: 10px;
     font-size: 24px;
     position: relative;
@@ -236,7 +238,7 @@ body {
     cursor: pointer;
     background-color: #fff;
     color: #000000;
-    border: 2px solid #fff;
+    border: none;
     transition: color .3s;
     -webkit-transition: color .3s;
     -moz-transition: color .3s;
@@ -284,19 +286,17 @@ body {
     padding-bottom: 100px;
     display: flex;
     text-align: center;
-    justify-content: center;
-    background-color: #7387f3;
+    justify-content: center; 
     /* background: linear-gradient(to bottom,#7387f3, #d670f5) ; */
-
-    background: linear-gradient(90deg, #d35bf8, #fc39be, #ff3286, #fb4955, #e2632c);
+    background: #E7DFDD;
     height: 100vh;
 }
 
 .reg-head {
-    color: #ffffff;
+    color: #000000;
     font-size: 48px;
     border: 2px solid linear-gradient(to right, #d670f5, #7387f3);
-    background: linear-gradient(90deg, #d35bf8, #fc39be, #ff3286, #fb4955, #e2632c);
+    background: #BDC6CF;
     border-radius: 40px;
     width: 350px;
     height: 60px;
@@ -310,26 +310,27 @@ body {
     width: 500px;
     height: 750px;
     text-align: center;
-    border: 4px solid #000000;
+    border: none;
     border-radius: 20px;
     font-family: montserrat, sans-serif;
     ;
     /* background: linear-gradient(to top,#7387f3, #d670f5); */
-    background: linear-gradient(90deg, #e2632c, #fb4955, #ff3286, #fc39be, #d35bf8);
+    background: #ADB2B5;
 }
 
 .menu {
     display: block;
     width: 20vw;
     height: 100vh;
-    background: linear-gradient(90deg, #d35bf8, #fc39be, #ff3286, #fb4955, #e2632c);
-    border-right: 4px solid #000000;
+    background: #E5E3E6;
+    border-right: none;
 }
 
 .user-inf {
     display: flex;
     height: 12%;
-    border-bottom: 4px solid #000000;
+    border-bottom: none;
+    background: #B5A2A4;
 }
 
 .user-photo {
@@ -372,7 +373,7 @@ body {
 .input-text {
     border: 3px solid #000000;
     border-radius: 30px;
-    background: linear-gradient(90deg, #d35bf8, #fc39be, #ff3286, #fb4955, #e2632c);
+    background: #EFECE7;
     position: fixed;
     height: 5vh;
     width: 60vw;
@@ -386,8 +387,8 @@ body {
     position: fixed;
     border: none;
     margin-left: 60px;
-    background-color: #000000;
-    color: #fff;
+    background-color: #BDC6CF;
+    color: #000000;
     border-radius: 30px;
     width: 10vw;
     height: 5vh;
@@ -426,8 +427,8 @@ body {
     position: relative;
     border: none;
     top: 1.6vw;
-    background-color: #000000;
-    color: #fff;
+    background-color: #BDC6CF;
+    color: #000000;
     border-radius: 40px;
     width: 7vw;
     height: 4vh;
@@ -459,12 +460,6 @@ body {
     left: 43%;
 }
 
-.settings-user {
-    background: linear-gradient(90deg, #d35bf8, #fc39be, #ff3286, #fb4955, #e2632c);
-    position: relative;
-    height: 300px;
-}
-
 .block_chats {
     display: block;
     margin-top: 50px;
@@ -480,19 +475,20 @@ body {
     display: flex;
     position: relative;
     width: 100%;
-    background: linear-gradient(90deg, #e2632c, #fb4955, #ff3286, #fc39be, #d35bf8);
+    background: #ADB2B5;
     border-top: 3px solid #000000;
     border-bottom: 3px solid #000000;
     margin-bottom: 10px;
+    border: none;
 
     &.active {
-        background: linear-gradient(90deg, #bdffbf, #ffe1d1, #f4b3ff, #bdf5ff) !important;
+        background: #BDC6CF !important;
     }
 }
 
 .block_chat:hover {
     cursor: pointer;
-    background: linear-gradient(90deg, #0be212, #0092c8, #453453);
+    background: #B5A2A4;
 }
 
 img {
@@ -518,10 +514,10 @@ p {
     border-radius: 20px;
     margin-top: 40px;
     z-index: 1;
-    top: 10%;
-    left: 1%;
+    top: 2%;
+    left: 21%;
     position: absolute;
-    background: linear-gradient(90deg, #bdffbf, #ffe1d1, #f4b3ff, #bdf5ff);
+    background: #B5A2A4;
     width: 400px;
     height: 513px;
     display: block;
@@ -575,12 +571,12 @@ p {
     border-radius: 20px;
     margin-top: 40px;
     z-index: 1;
-    top: 10%;
-    left: 1%;
+    top: 2%;
+    left: 21%;
     position: absolute;
-    background: linear-gradient(90deg, #bdffbf, #ffe1d1, #f4b3ff, #bdf5ff);
+    background: #B5A2A4;
     width: 400px;
-    height: 513px;
+    height: 515px;
     display: block;
 }
 
@@ -614,10 +610,11 @@ p {
     width: 33.3%;
     font-size: 32px;
     text-align: center;
+    background: #E5E3E6;
 }
 
 .footer-change:hover {
-    background-color: #ce96df;
+    background-color: #D6DBDE;
     cursor: pointer;
 }
 
@@ -627,6 +624,7 @@ p {
     margin: 0 auto;
     margin-top: 3px;
     font-size: 26px;
+    
 }
 
 .footer-exit {
@@ -634,10 +632,12 @@ p {
     height: 67px;
     width: 33.3%;
     text-align: center;
+    background: #E5E3E6;
+
 }
 
 .footer-exit:hover {
-    background-color: #ce96df;
+    background-color: #D6DBDE;
     cursor: pointer;
 }
 
@@ -657,10 +657,12 @@ p {
     width: 33.3%;
     font-size: 32px;
     text-align: center;
+    background: #E5E3E6;
+
 }
 
 .delete-user:hover {
-    background-color: #ce96df;
+    background-color: #D6DBDE;
     cursor: pointer
 }
 
@@ -684,7 +686,7 @@ p {
     font-family: Raleway, sans-serif;
     width: 15%;
     height: 15%;
-    background: linear-gradient(90deg, #a2a8ff, #eececf);
+    background: #EFECE7;
 }
 
 .msg-me {
@@ -695,12 +697,10 @@ p {
     font-family: Raleway, sans-serif;
     width: 15%;
     height: 15%;
-    background: linear-gradient(90deg, #eececf, #a2a8ff);
+   background: #EFECE7;
 }
 
-&.active {
-    background-color: #000000;
-}
+
 
 .WORK {
     width: 100vw;
@@ -716,7 +716,7 @@ p {
 
 .wind-work {
     width: 80vw;
-    background: linear-gradient(90deg, #de9cb8, #9dcde1, #dc8eb8, #98d3ec);
+    background: #C5BEB4;
     display: block;
     overflow: hidden;
 }
@@ -727,15 +727,14 @@ p {
     display: flex;
     width: 80vw;
     height: 15vh;
-    background: linear-gradient(90deg, #de9cb8, #9dcde1, #dc8eb8, #98d3ec);
-    border-radius: 100px;
+    background: #C5BEB4;
     /* border: 2px solid #7387f3 ; */
 }
 
 .input-text {
-    border: 3px solid #000000;
+    border: none;
     border-radius: 30px;
-    background: linear-gradient(90deg, #ffffff, #56246e);
+    background: #EFECE7;
     position: fixed;
     height: 5vh;
     width: 60vw;
@@ -754,6 +753,7 @@ p {
     margin-top: 10px;
     width: 90%;
     height: 30px;
+    border: none;
 }
 
 .footer-change-body {
@@ -766,11 +766,13 @@ p {
     padding: 0 auto;
     text-align: center;
     width: 50%;
+    margin-top: 12px;
     height: 60px;
+    background: #E5E3E6;
 }
 
 .change-data:hover {
-    background-color: #ce96df;
+    background-color: #D6DBDE;
     cursor: pointer;
 }
 
@@ -780,10 +782,12 @@ p {
     text-align: center;
     width: 50%;
     height: 60px;
+    background: #E5E3E6;
+    margin-top: 12px;
 }
 
 .change-back:hover {
-    background-color: #ce96df;
+    background-color: #D6DBDE;
     cursor: pointer;
 }
 
@@ -805,7 +809,7 @@ p {
 
 .change-name-chat-area {
     position: absolute;
-    background: linear-gradient(90deg, #de9cb8, #9dcde1, #dc8eb8, #98d3ec);
+    background: #B5A2A4;
     width: 20%;
     height: 100px;
     top: 92%;
@@ -818,15 +822,17 @@ p {
     width: 60%;
     height: 40px;
     font-size: 20px;
+    border: none;
 }
 
 .change-name-btn {
     position: relative;
     height: 40px;
     left: 15px;
-    background-color: #000000;
-    color: rgb(255, 255, 255);
+    background-color: #BDC6CF;
+    color: rgb(0, 0, 0);
     border-radius: 100px;
+    border: none;
 }
 
 .change-name-btn:hover {
@@ -841,12 +847,12 @@ p {
 
     0%,
     100% {
-        background: linear-gradient(90deg, #0be212, #0092c8, #453453);
+        background: #BDC6CF;
     }
 
     /* Элемент виден */
     50% {
-        background: linear-gradient(90deg, #e2632c, #fb4955, #ff3286, #fc39be, #d35bf8);
+        background: #EFECE7;
     }
 
     /* Элемент мерцает и становится невидимым! */
