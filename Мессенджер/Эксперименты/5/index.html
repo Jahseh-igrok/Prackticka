@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <img class="image-gradient" src="img/gradient.png" alt="gradient">
+    <div class="layer-blur">
+
+    </div>
+
+    <div class="container">
+        <header>
+            <h1 class="logo">Kcode</h1>
+
+            <nav>
+                <a href="#">COMPANY</a>
+                <a href="#">FEATURES</a>
+                <a href="#">RESOURCES</a>
+                <a href="#">DOCS</a>
+            </nav>
+
+            <button class="btn-signing">SIGN IN</button>
+        </header>
+
+        <main>
+            <div class="content">
+                <div class="tag-box">
+                    <div class="tag">INTRUCING &wedbar;</div>
+                </div>
+
+                <h1>ENAIL FOR <br>DEVELOPERS</h1>
+
+                <p class="description">
+                    the best way to reach humans instead of spam folders,
+                    dlever transactional and maketing emails at scale.
+                </p>
+                <div class="buttons">
+                    <a href="#" class="btn-get-started">
+                        Documentation &gt;
+                    </a>
+                    <a href="#" class="btn-signing-main">
+                        Getstarted &gt;
+                    </a>
+                </div>
+            </div>
+        </main>
+
+                <div class="jet">
+            <div class="jet__body">
+                <div class="jet__side jet__side--left">0000000000000000</div>
+                <div class="jet__side jet__side--right"></div>
+                <div class="jet__side jet__side--back"></div>
+                <div class="jet__side jet__side--front">front end</div>
+                <div class="jet__side jet__side--top"></div>
+                <div class="jet__side jet__side--bottom"></div>
+
+                <!--хвост-->
+                <div class="jet__side jet__side--tail"></div>
+
+                <!-- Крыылья -->
+                <div class="jet__side jet__side_wing jet__side_wing--left">&#9733;</div>
+                <div class="jet__side jet__side_wing jet__side_wing--right">&#9733;</div>
+
+                <!-- шасси -->
+                <div class="jet__side jet__side_chassis jet__side_chassis--front"></div>
+                <div class="jet__side jet__side_chassis jet__side_chassis--left"></div>
+                <div class="jet__side jet__side_chassis jet__side_chassis--right"></div>
+
+
+            </div>
+        </div>
+
+    </div>
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.7/build/spline-viewer.js"></script>
+    <spline-viewer url="https://prod.spline.design/YztxwE4fx3a5IgRk/scene.splinecode"></spline-viewer>
+    <script>
+                (() => {
+            const jet = document.querySelector('.jet__body');
+
+            let startRotateY = 78;
+            let startRotateX = 15;
+            let startRotateZ = -15;
+
+            jet.style.transform = `rotateY(${+startRotateY}deg) rotateX(${+startRotateX}deg) rotateZ(${+startRotateZ}deg)`
+
+            document.addEventListener('keydown', function (e) {
+                if (e.keyCode === 87) {
+                    startRotateX += 2;
+                }
+                else if (e.keyCode === 83) {
+                    startRotateX -= 2;
+                }
+
+                else if (e.keyCode === 65) {
+                    startRotateZ -= 3;
+                }
+
+                else if (e.keyCode === 68) {
+                    startRotateZ += 3;
+                }
+
+                else if(e.keycode === 70){
+                    startRotateZ = 345
+                }
+
+                else if (e.keyCode === 81) {
+                    startRotateY -= 2;
+                }
+
+                else if (e.keyCode === 69) {
+                    startRotateY += 2;
+                }
+
+
+                jet.style.transform = `rotateY(${+startRotateY}deg) rotateX(${+startRotateX}deg) rotateZ(${+startRotateZ}deg)`
+            })
+        })()
+    </script>
+</body>
+
+</html>

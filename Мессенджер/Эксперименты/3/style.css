@@ -1,0 +1,62 @@
+body{
+    width: 80vw;
+    background-color: black;
+}
+.container{
+    position: relative;
+    margin: 200px auto;
+    width: 300px;
+    height: 300px;
+    perspective: 800px;
+
+}
+.cube{
+    width: inherit;
+    height: inherit;
+    transform-style: preserve-3d;
+    /* transform: rotate3d(1, 1, 1, 70deg); */
+}
+.side{
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    border: 5px solid #f10101;
+    font: normal 70px sans-serif;
+    text-align: center;
+    line-height: 300px;
+    color: #fff;
+}
+.front{
+    transform: translateZ(150px);
+    background-color: bisque;
+}
+.back{
+    transform: rotateY(180deg) translateZ(150px);
+    background-color: #f10101;
+}
+.right{
+    transform: rotateY(90deg) translateZ(150px);
+    background-color: #fff;
+}
+.left{
+    transform: rotateY(-90deg)translateZ(150px);
+    background-color: aqua;
+}
+.top{
+    transform: rotateX(90deg) translateZ(150px);
+    background-color: aquamarine;
+}
+.bottom{
+    transform: rotateX(-90deg) translateZ(150px);
+}
+.head1{
+    width: inherit;
+    height: 180px;
+    transform: translateZ(220px) rotateX(40deg) translateY(-15px);
+
+}
+.head2{
+    width: inherit;
+    height: 180px;
+    transform: translateZ(330px) rotateX(-40deg) translateY(190px);
+}

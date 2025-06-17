@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>3D AVIATOR</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <h1>Crazy 3D-AVIATOR</h1>
+
+        <div class="jet">
+            <div class="jet__body">
+                <div class="jet__side jet__side--left">0000000000000000</div>
+                <div class="jet__side jet__side--right">right</div>
+                <div class="jet__side jet__side--back">back</div>
+                <div class="jet__side jet__side--front">front</div>
+                <div class="jet__side jet__side--top">top</div>
+                <div class="jet__side jet__side--bottom">bottom</div>
+
+                <!--хвост-->
+                <div class="jet__side jet__side--tail"></div>
+
+                <!-- Крыылья -->
+                <div class="jet__side jet__side_wing jet__side_wing--left">&#9733;</div>
+                <div class="jet__side jet__side_wing jet__side_wing--right">&#9733;</div>
+
+                <!-- шасси -->
+                <div class="jet__side jet__side_chassis jet__side_chassis--front"></div>
+                <div class="jet__side jet__side_chassis jet__side_chassis--left"></div>
+                <div class="jet__side jet__side_chassis jet__side_chassis--right"></div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        (() => {
+            const jet = document.querySelector('.jet__body');
+
+            let startRotateY = 78;
+            let startRotateX = 15;
+            let startRotateZ = -15;
+
+            jet.style.transform = `rotateY(${+startRotateY}deg) rotateX(${+startRotateX}deg) rotateZ(${+startRotateZ}deg)`
+
+            document.addEventListener('keydown', function (e) {
+                // if (e.keyCode === 87) {
+                //     startRotateX += 2;
+                // }
+                // else if (e.keyCode === 83) {
+                //     startRotateX -= 2;
+                // }
+
+                if (e.keyCode === 65) {
+                    startRotateZ -= 3;
+                }
+
+                else if (e.keyCode === 68) {
+                    startRotateZ += 3;
+                }
+
+                // else if(e.keycode === 70){
+                //     startRotateZ = 345
+                // }
+
+                // else if (e.keyCode === 81) {
+                //     startRotateY -= 2;
+                // }
+
+                // else if (e.keyCode === 69) {
+                //     startRotateY += 2;
+                // }
+
+
+                jet.style.transform = `rotateY(${+startRotateY}deg) rotateX(${+startRotateX}deg) rotateZ(${+startRotateZ}deg)`
+            })
+        })()
+            // (() => {
+            //     const jt = document.querySelector('.jet__body');
+
+            //     let startRotateY = 78;
+            //     let startRotateX = 15;
+            //     let startRotateZ = -15;
+
+            //     jet.style.transform = `rotateY(${+startRotateY}deg) rotateX(${+startRotateX}deg) rotateZ(${+startRotateZ}deg)`
+
+            //     document.addEventListener('keydown', function(e){
+            //         if(e.keyCode === 70){
+                        
+            //         }
+            //         jt.style.transform = `rotateZ(${+startRotateZ}deg)`
+            //     })
+
+            // })
+    </script>
+</body>
+
+</html>

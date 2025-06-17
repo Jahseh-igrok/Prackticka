@@ -1,0 +1,110 @@
+:root{
+    --AVIATORWidth:100px;
+    --AVIATORHeight:100px;
+}
+.jet{
+    /* outline: 2px dashed red; */
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    scale: 0.5;
+
+    width: var(--AVIATORWidth);
+    height: var(--AVIATORHeight);
+    perspective: 500px;
+}
+.jet__body{
+    position: relative;
+    width: inherit;
+    height: inherit;
+    transform-style: preserve-3d;
+    transform: rotateY(60deg);
+}
+.jet__side{
+    position: absolute;
+    width: inherit;
+    height: 50px;
+    background: linear-gradient(45deg,black, gray);
+    border:1px solid beige;
+    justify-content: center;
+    text-align: center;
+}
+
+.jet__side--front{
+    transform: translateZ(50px);
+}
+.jet__side--back{
+    transform: translateZ(-150px);
+}
+
+.jet__side--left,
+.jet__side--right{
+    font-size: 20px;
+    width: 200px;
+}
+.jet__side--left{
+    transform: rotateY(-90deg) translateX(-50px) translateZ(100px);
+}
+.jet__side--right{
+    transform: rotateY(90deg) translateX(50px) translateZ(0px);
+}
+.jet__side--top, .jet__side--bottom{
+    height: 200px;
+}
+.jet__side--top{
+    transform: translateZ(-50px) translateY(-100px) rotateX(90deg);
+}
+.jet__side--bottom{
+    transform: translateZ(-50px) translateY(-50px) rotateX(-90deg);
+}
+.jet__side_wing{
+    width: 150px;
+    color: beige;
+}
+.jet__side_wing--left{
+    transform: rotateX(90deg) translateY(-50px) translateX(-150px) translateZ(25px);
+    border-bottom-left-radius: 50%;
+    border-top-left-radius: 10%;
+}
+.jet__side_wing--right{
+    transform: rotateX(90deg) translateY(-50px) translateX(100px) translateZ(25px);
+    border-bottom-left-radius: 50%;
+    border-top-left-radius: 10%;
+}
+.jet__side--tail{
+    width: 60px;
+    padding: 10px;
+    justify-content: end;
+    transform: 
+    rotateX(0deg)
+    rotateY(-90deg)
+    translateY(-50px)
+    translateX(-125px)
+    translateZ(-20px);
+    border-top-right-radius: 100%;
+}
+.jet__side_chassis{
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background: linear-gradient(120deg,red, black);
+    border-radius: 50%;
+    border: 5px groove gray;
+    transition: 1s;
+    
+}
+.jet__side_chassis--front{
+    left: 50%;
+    transform: translate(-50%, 50px) rotateX(30deg) rotateY(90deg);
+}
+.jet__side_chassis--left{
+    left: 25%;
+    transform: translateX(-50%) translateY(55px) translateZ(-100px) rotateY(90deg);
+}
+.jet__side_chassis--right{
+    left: 75%;
+    transform: translateX(-50%) translateY(55px) translateZ(-100px) rotateY(90deg);
+}

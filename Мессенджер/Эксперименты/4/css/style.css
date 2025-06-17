@@ -1,0 +1,49 @@
+@import url('./AVIATOR.css');
+@import url('./CONTROLS.css');
+::before,
+::after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    height: 100vh;
+    background-color: black;
+    font-family: Geometria, sans-serif;
+    color: #ccc;
+    user-select: none;
+    overflow: hidden;
+}
+h1{
+    margin: 50px auto;
+    text-align: center;
+    color: gold;
+}
+.wrapper{
+    position: relative;
+    margin: auto;
+    width: 1200px;
+    height: 700px;
+    outline: 5px groove #ccc;
+
+    background-image: url('/фон2.jpg');
+    background-size: cover;
+    background-position: left center;
+    background-repeat: repeat-x;
+    overflow: hidden;
+
+    animation-name: scrollBg;
+    animation-duration: 4s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+}
+@keyframes scrollBg{
+    0%{
+        background-position: left center;
+    }
+    100%{
+        background-position: -2400px center;
+    }
+}
